@@ -51,7 +51,7 @@ Makna Geometris
 - Dalam aljabar linear, solusi sistem persamaan linear dapat dilihat secara visual sebagai titik pertemuan dua garis.
 
 # Gambar
-![alt text](image.png)
+![alt text](image1.png)
 
 GeoGebra menampilkan titik potong (3, 1) yang merupakan solusi dari sistem persamaan linear tersebut.
 
