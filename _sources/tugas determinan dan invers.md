@@ -29,15 +29,13 @@ $A=
 \end{bmatrix}$
 
 Hitung determinan dengan ekspansi baris pertama :
+
 $
-\det(A)
-=
-3(4)-2(1)
-=
-12-2
-=
-10
-$
+\begin{aligned}
+\det(A) &= 3(4) - 2(1) \\
+        &= 12 - 2 \\
+        &= 10
+\end{aligned}$
 
 $=3(4)-2(1)$
 
@@ -57,24 +55,24 @@ $A=
 
 Ekspansi pada baris pertama:
 
-$
+$\begin{aligned}
 \det(A)
-=
-1\begin{bmatrix}
-4 & 5\\
+&= 1
+\begin{vmatrix}
+4 & 5 \\
 0 & 6
-\end{bmatrix}
--
-2\begin{bmatrix}
-0 & 5\\
+\end{vmatrix}
+- 2
+\begin{vmatrix}
+0 & 5 \\
 1 & 6
-\end{bmatrix}
-+
-3\begin{bmatrix}
-0 & 4\\
+\end{vmatrix}
++ 3
+\begin{vmatrix}
+0 & 4 \\
 1 & 0
-\end{bmatrix}
-$
+\end{vmatrix}
+\end{aligned}$
 
 Hitung masing-masing minor ;
 
@@ -126,67 +124,51 @@ $
 
 Ekspansi pada baris pertama:
 
-$
-\det(A)
-=
-1M_{11}
--2M_{12}
-+0M_{13}
--1M_{14}
-$
+$\det(A)=1M_{11}-2M_{12}+0M_{13}-1M_{14}$
 
 minor pertama :
 
-$
-M_{11}
-=
-\begin{bmatrix}
+$M_{11}=
+\begin{vmatrix}
 1 & 2 & 0 \\
 4 & 1 & 2 \\
 0 & 3 & 1
-\end{bmatrix}
-=
--13
-$
+\end{vmatrix}$
 
 minor kedua :
 
-$
+$\begin{aligned}
 M_{12}
-=
-\begin{bmatrix}
-3&2&0\\
-0&1&2\\
-1&3&1
-\end{bmatrix}
-=-11
-$
+&=
+\begin{vmatrix}
+3 & 2 & 0 \\
+0 & 1 & 2 \\
+1 & 3 & 1
+\end{vmatrix}
+\end{aligned}$
 
 minor keempat :
 
-$
+$\begin{aligned}
 M_{14}
-=
-\begin{bmatrix}
-3&1&2\\
-0&4&1\\
-1&0&3
-\end{bmatrix}
-=29
-$
+&=
+\begin{vmatrix}
+3 & 1 & 2 \\
+0 & 4 & 1 \\
+1 & 0 & 3
+\end{vmatrix}
+\end{aligned}$
 
 Sehingga
 
-$
+$\begin{aligned}
 \det(A)
-=
-1(-13)-2(-11)-29
-$
-
-$
-=
--13+22-29
-$
+&= 1M_{11}-2M_{12}+0M_{13}-1M_{14} \\
+&= 1(-13)-2(-11)+0-1(29) \\
+&= -13+22-29 \\
+&= 9-29 \\
+&= -20
+\end{aligned}$
 
 $
 \boxed{\det(A)=-20}
@@ -205,48 +187,37 @@ $
 
 Determinan:
 
-$
+$\begin{aligned}
 \det(A)
-=
-(2)(4)-(1)(3)
-=
-5
-$
+&= (2)(4) - (1)(3) \\
+&= 8 - 3 \\
+&= 5
+\end{aligned}$
 
 Rumus invers matriks 2x2:
 
-$
-A^{-1}
+$A^{-1}
 =
 \frac{1}{ad-bc}
 \begin{bmatrix}
-d & -b\\
+d & -b \\
 -c & a
-\end{bmatrix}
-$
+\end{bmatrix}$
 
 Substitusi nilai:
 
-$
-A^{-1}
-=
-\frac{1}{5}
+$=\frac{1}{5}
 \begin{bmatrix}
-4 & -1\\
+4 & -1 \\
 -3 & 2
-\end{bmatrix}
-$
+\end{bmatrix}$
 
-$
-\boxed{
-A^{-1}
+$A^{-1}
 =
 \begin{bmatrix}
-\frac45 & -\frac15\\
--\frac35 & \frac25
-\end{bmatrix}
-}
-$
+\frac{4}{5} & -\frac{1}{5} \\
+-\frac{3}{5} & \frac{2}{5}
+\end{bmatrix}$
 
 # 5. Matriks 3X3 (Invers)
 Diberikan matriks
@@ -262,37 +233,25 @@ $
 
 # Langkah 1 : Menentukan Determinan
 
-$
+$\begin{aligned}
 \det(A)
-=
+&=
 1
-\begin{bmatrix}
-1 & 1\\
+\begin{vmatrix}
+1 & 1 \\
 3 & 4
-\end{bmatrix}
--
-2
-\begin{bmatrix}
-0 & 1\\
+\end{vmatrix}
+-2
+\begin{vmatrix}
+0 & 1 \\
 2 & 4
-\end{bmatrix}
-+
-1
-\begin{bmatrix}
-0 & 1\\
+\end{vmatrix}
++1
+\begin{vmatrix}
+0 & 1 \\
 2 & 3
-\end{bmatrix}
-$
-
-$
-=
-1(4-3)-2(0-2)+(0-2)
-$
-
-$
-=
-3
-$
+\end{vmatrix}
+\end{aligned}$
 
 Karena $\det(A)\neq0$, maka invers ada.
 
@@ -309,42 +268,35 @@ $
 
 # Langkah 3 : Adjoin
 
-$
+$\begin{aligned}
 \operatorname{adj}(A)
-=
-C^T
-=
+&= C^{T} \\[6pt]
+&=
 \begin{bmatrix}
-1 & -5 & 1\\
-2 & 2 & -1\\
+1 & -5 & 1 \\
+2 & 2 & -1 \\
 -2 & 1 & 1
 \end{bmatrix}
-$
+\end{aligned}$
 
 # Langkah 4 : Invers Matrik
 
-$
-A^{-1}
+$A^{-1}
 =
 \frac{1}{3}
 \begin{bmatrix}
-1 & -5 & 1\\
-2 & 2 & -1\\
+1 & -5 & 1 \\
+2 & 2 & -1 \\
 -2 & 1 & 1
-\end{bmatrix}
-$
+\end{bmatrix}$
 
-$
-\boxed{
-A^{-1}
+$A^{-1}
 =
 \begin{bmatrix}
-\frac13 & -\frac53 & \frac13\\
-\frac23 & \frac23 & -\frac13\\
--\frac23 & \frac13 & \frac13
-\end{bmatrix}
-}
-$
+\frac{1}{3} & -\frac{5}{3} & \frac{1}{3} \\
+\frac{2}{3} & \frac{2}{3} & -\frac{1}{3} \\
+-\frac{2}{3} & \frac{1}{3} & \frac{1}{3}
+\end{bmatrix}$
 
 # 6. Matriks 4x4 (Invers)
 Diberikan matriks
@@ -436,15 +388,13 @@ $
 
 Maka diperoleh hasil inversnya
 
-$
-\boxed{
+$\begin{aligned}
 A^{-1}
-=
+&=
 \begin{bmatrix}
-1 & 0 & 0 & 0\\
--2 & 1 & 0 & 0\\
-5 & -3 & 1 & 0\\
+1 & 0 & 0 & 0 \\
+-2 & 1 & 0 & 0 \\
+5 & -3 & 1 & 0 \\
 -20 & 11 & -4 & 1
 \end{bmatrix}
-}
-$
+\end{aligned}$
