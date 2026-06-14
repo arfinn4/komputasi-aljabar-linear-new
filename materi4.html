@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Materi 2 : Persamaan linear &#8212; My sample book</title>
+    <title>Materi 4: Konsep Dasar Teori Sistem Persamaan Linear &#8212; My sample book</title>
   
   
   
@@ -62,11 +62,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'materi2';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'materi4';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Materi 3 : eliminasi gaussion" href="materi3.html" />
-    <link rel="prev" title="Materi 1 : Pengantar Materi KAL" href="materi1.html" />
+    <link rel="next" title="Materi 5: Materi tentang Determinan dan Invers Matriks" href="materi5.html" />
+    <link rel="prev" title="Materi 3 : eliminasi gaussion" href="materi3.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -178,7 +178,7 @@
 
 
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Materi 2 : Persamaan linear</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materi2.html">Materi 2 : Persamaan linear</a></li>
 
 
 
@@ -194,7 +194,7 @@
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="materi4.html">Materi 4: Konsep Dasar Teori Sistem Persamaan Linear</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Materi 4: Konsep Dasar Teori Sistem Persamaan Linear</a></li>
 
 
 
@@ -443,7 +443,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fmateri2.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fmateri4.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -473,7 +473,7 @@
       
       
       
-      <li><a href="_sources/materi2.md" target="_blank"
+      <li><a href="_sources/materi4.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -549,7 +549,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Materi 2 : Persamaan linear</h1>
+    <h1>Materi 4: Konsep Dasar Teori Sistem Persamaan Linear</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -559,12 +559,27 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Materi 2 : Persamaan linear</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-eliminasi-gauss">1. Metode Eliminasi gauss</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-gaussjordan">2. Metode Gauss–Jordan</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-matriks-invers">3. Metode Matriks Invers</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-cramer">4.Metode Cramer</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#validasi-kode-program-menggunakan-python-numpy">Validasi Kode Program Menggunakan Python (NumPy)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Materi 4: Konsep Dasar Teori Sistem Persamaan Linear</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#d-landasan-teoretis-sistem-persamaan-linear">D. Landasan Teoretis Sistem Persamaan Linear</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#konsep-dasar-sistem-persamaan-linear">Konsep Dasar Sistem Persamaan Linear</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pengelompokan-sistem-persamaan-linear">Pengelompokan Sistem Persamaan Linear</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sistem-homogen">1. Sistem Homogen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sistem-non-homogen">2. Sistem Non-Homogen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#persamaan-linear-dan-nonlinear">3. Persamaan Linear dan Nonlinear</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#karakteristik-dan-jenis-solusi-spl">Karakteristik dan Jenis Solusi SPL</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solusi-tunggal">1. Solusi Tunggal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solusi-tak-hingga">2. Solusi Tak Hingga</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tidak-memiliki-solusi">3. Tidak Memiliki Solusi</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#representasi-spl-dalam-bentuk-matriks">Representasi SPL dalam Bentuk Matriks</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-koefisien-a">Matriks Koefisien (A)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vektor-variabel-x">Vektor Variabel (X)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vektor-konstanta-b">Vektor Konstanta (B)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#penyelesaian-komputasi-menggunakan-sagemath">Penyelesaian Komputasi Menggunakan SageMath</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sagemath-cell-interaktif">SageMath Cell Interaktif</a></li>
 </ul>
 
             </nav>
@@ -577,314 +592,105 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="materi-2-persamaan-linear">
-<h1>Materi 2 : Persamaan linear<a class="headerlink" href="#materi-2-persamaan-linear" title="Link to this heading">#</a></h1>
-<p>penyelesaian sistem dengan 5 persamaan dan 5 variabel menggunakan beberapa metode yang berbeda.
-Contoh sistem persamaan linear 5×5:</p>
-<p><span class="math notranslate nohighlight">\(
-\begin{cases}
-x + y + z + w + v = 15 \\
-2x - y + z + w - v = 8 \\
-x + 2y - z + w + v = 12 \\
-3x + y + z - w + v = 14 \\
-x - y + 2z + w + 2v = 13
-\end{cases}
-\)</span></p>
+  <section class="tex2jax_ignore mathjax_ignore" id="materi-4-konsep-dasar-teori-sistem-persamaan-linear">
+<h1>Materi 4: Konsep Dasar Teori Sistem Persamaan Linear<a class="headerlink" href="#materi-4-konsep-dasar-teori-sistem-persamaan-linear" title="Link to this heading">#</a></h1>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="metode-eliminasi-gauss">
-<h1>1. Metode Eliminasi gauss<a class="headerlink" href="#metode-eliminasi-gauss" title="Link to this heading">#</a></h1>
-<p>Langkah 1: Bentuk Matriks Augmented</p>
-<p><span class="math notranslate nohighlight">\(
-\left[
-\begin{array}{ccccc|c}
-1&amp;1&amp;1&amp;1&amp;1&amp;15\\
-2&amp;-1&amp;1&amp;1&amp;-1&amp;8\\
-1&amp;2&amp;-1&amp;1&amp;1&amp;12\\
-3&amp;1&amp;1&amp;-1&amp;1&amp;14\\
-1&amp;-1&amp;2&amp;1&amp;2&amp;13
-\end{array}
-\right]
-\)</span></p>
-<p>Langkah 2: Hilangkan Elemen di Bawah Pivot Pertama
-Operasi baris:</p>
-<p><span class="math notranslate nohighlight">\(
-\begin{aligned}
-R_2 &amp;\leftarrow R_2 - 2R_1 \\
-R_3 &amp;\leftarrow R_3 - R_1 \\
-R_4 &amp;\leftarrow R_4 - 3R_1 \\
-R_5 &amp;\leftarrow R_5 - R_1
-\end{aligned}
-\)</span></p>
-<p>Hasil:
-<span class="math notranslate nohighlight">\(
-\left[
-\begin{array}{ccccc|c}
-1&amp;1&amp;1&amp;1&amp;1&amp;15\\
-0&amp;-3&amp;-1&amp;-1&amp;-3&amp;-22\\
-0&amp;1&amp;-2&amp;0&amp;0&amp;-3\\
-0&amp;-2&amp;-2&amp;-4&amp;-2&amp;-31\\
-0&amp;-2&amp;1&amp;0&amp;1&amp;-2
-\end{array}
-\right]
-\)</span></p>
-<p>Langkah 3: Tukar Baris Agar Pivot Kedua Bernilai 1</p>
-<p><span class="math notranslate nohighlight">\(R_2 \leftrightarrow R_3\)</span></p>
-<p>Hasil :</p>
-<p><span class="math notranslate nohighlight">\(
-\left[
-\begin{array}{ccccc|c}
-1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 15 \\
-0 &amp; 1 &amp; -2 &amp; 0 &amp; 0 &amp; -3 \\
-0 &amp; -3 &amp; -1 &amp; -1 &amp; -3 &amp; -22 \\
-0 &amp; -2 &amp; -2 &amp; -4 &amp; -2 &amp; -31 \\
-0 &amp; -2 &amp; 1 &amp; 0 &amp; 1 &amp; -2
-\end{array}
-\right]
-\)</span></p>
-<p>Langkah 4: Hilangkan Elemen di Bawah Pivot Kedua</p>
-<p><span class="math notranslate nohighlight">\(
-\begin{aligned}
-R_3 &amp;\leftarrow R_3 + 3R_2 \\
-R_4 &amp;\leftarrow R_4 + 2R_2 \\
-R_5 &amp;\leftarrow R_5 + 2R_2
-\end{aligned}
-\)</span></p>
-<p>Hasil :</p>
-<p><span class="math notranslate nohighlight">\(
-\left[
-\begin{array}{ccccc|c}
-1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 15 \\
-0 &amp; 1 &amp; -2 &amp; 0 &amp; 0 &amp; -3 \\
-0 &amp; 0 &amp; -7 &amp; -1 &amp; -3 &amp; -31 \\
-0 &amp; 0 &amp; -6 &amp; -4 &amp; -2 &amp; -37 \\
-0 &amp; 0 &amp; -3 &amp; 0 &amp; 1 &amp; -8
-\end{array}
-\right]
-\)</span></p>
-<p>Langkah 5: Bentuk Pivot Ketiga</p>
-<p><span class="math notranslate nohighlight">\(
-R_3 \leftarrow -\frac{1}{7}R_3
-\)</span></p>
-<p><span class="math notranslate nohighlight">\(
-\left[
-\begin{array}{ccccc|c}
-1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 15 \\
-0 &amp; 1 &amp; -2 &amp; 0 &amp; 0 &amp; -3 \\
-0 &amp; 0 &amp; 1 &amp; \frac{1}{7} &amp; \frac{3}{7} &amp; \frac{31}{7} \\
-0 &amp; 0 &amp; -6 &amp; -4 &amp; -2 &amp; -37 \\
-0 &amp; 0 &amp; -3 &amp; 0 &amp; 1 &amp; -8
-\end{array}
-\right]
-\)</span></p>
-<p>Langkah 6: Hilangkan Elemen di Bawah Pivot Ketiga</p>
-<p><span class="math notranslate nohighlight">\(
-\begin{aligned}
-R_4 &amp;\leftarrow R_4 + 6R_3 \\
-R_5 &amp;\leftarrow R_5 + 3R_3
-\end{aligned}
-\)</span></p>
-<p>hasillnya :</p>
-<p><span class="math notranslate nohighlight">\(
-\left[
-\begin{array}{ccccc|c}
-1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 15 \\
-0 &amp; 1 &amp; -2 &amp; 0 &amp; 0 &amp; -3 \\
-0 &amp; 0 &amp; 1 &amp; \frac{1}{7} &amp; \frac{3}{7} &amp; \frac{31}{7} \\
-0 &amp; 0 &amp; 0 &amp; -\frac{22}{7} &amp; \frac{4}{7} &amp; -\frac{73}{7} \\
-0 &amp; 0 &amp; 0 &amp; \frac{3}{7} &amp; \frac{16}{7} &amp; \frac{37}{7}
-\end{array}
-\right]
-\)</span></p>
-<p>Langkah 7: Lanjutkan Hingga Bentuk Eselon
-Setelah eliminasi selesai diperoleh:</p>
-<p><span class="math notranslate nohighlight">\(
-\left[
-\begin{array}{ccccc|c}
-1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 3 \\
-0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 4 \\
-0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 2 \\
-0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 1 \\
-0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 5
-\end{array}
-\right]
-\)</span></p>
-<p>Solusi
-<span class="math notranslate nohighlight">\(x=3, y=4, z=2, w=1, v=5\)</span></p>
+<section class="tex2jax_ignore mathjax_ignore" id="d-landasan-teoretis-sistem-persamaan-linear">
+<h1>D. Landasan Teoretis Sistem Persamaan Linear<a class="headerlink" href="#d-landasan-teoretis-sistem-persamaan-linear" title="Link to this heading">#</a></h1>
+<p>Sebelum melakukan penyelesaian terhadap Sistem Persamaan Linear (SPL), penting untuk memahami konsep-konsep dasar yang menjadi fondasi dari metode penyelesaiannya. Pemahaman teori ini membantu dalam menganalisis struktur sistem, menentukan solusi, serta memilih metode yang paling sesuai untuk digunakan.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="metode-gaussjordan">
-<h1>2. Metode Gauss–Jordan<a class="headerlink" href="#metode-gaussjordan" title="Link to this heading">#</a></h1>
-<p>Dari bentuk eselon:</p>
-<p><span class="math notranslate nohighlight">\(
-\left[
-\begin{array}{ccccc|c}
-1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 3 \\
-0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 4 \\
-0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 2 \\
-0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 1 \\
-0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 5
-\end{array}
-\right]
-\)</span></p>
-<p>Eliminasi elemen di atas pivot kelima:</p>
-<p><span class="math notranslate nohighlight">\(
-\begin{aligned}
-R_4 &amp;\leftarrow R_4 + \frac{2}{11}R_5 \\
-R_3 &amp;\leftarrow R_3 - \frac{3}{7}R_5 \\
-R_1 &amp;\leftarrow R_1 - R_5
-\end{aligned}
-\)</span></p>
-<p>Lanjutkan hingga seluruh elemen di atas pivot menjadi nol.
-Hasil akhirnya:</p>
-<p><span class="math notranslate nohighlight">\(
-\left[
-\begin{array}{ccccc|c}
-1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 3 \\
-0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 4 \\
-0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 2 \\
-0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 1 \\
-0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 5
-\end{array}
-\right]
-\)</span></p>
-<p>maka :
-<span class="math notranslate nohighlight">\((x,y,z,w,v)=(3,4,2,1,5)\)</span></p>
+<section class="tex2jax_ignore mathjax_ignore" id="konsep-dasar-sistem-persamaan-linear">
+<h1>Konsep Dasar Sistem Persamaan Linear<a class="headerlink" href="#konsep-dasar-sistem-persamaan-linear" title="Link to this heading">#</a></h1>
+<p>Sistem Persamaan Linear merupakan sekumpulan persamaan aljabar yang melibatkan beberapa variabel dengan pangkat tertinggi satu. Tujuan utama dari SPL adalah menemukan nilai variabel yang dapat memenuhi seluruh persamaan secara bersamaan.</p>
+<p>Secara umum, bentuk persamaan linear dapat dituliskan sebagai:</p>
+<p><span class="math notranslate nohighlight">\(a_1x_1 + a_2x_2 + \cdots + a_nx_n = b\)</span></p>
+<p>adalah koefisien yang menyatakan pengali masing-masing variabel.</p>
+<p><span class="math notranslate nohighlight">\(x1,x2,…,xn\)</span>	​</p>
+<p>merupakan variabel yang nilainya akan dicari.
+b adalah konstanta atau nilai tetap pada ruas kanan persamaan.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="metode-matriks-invers">
-<h1>3. Metode Matriks Invers<a class="headerlink" href="#metode-matriks-invers" title="Link to this heading">#</a></h1>
-<p>Tuliskan :</p>
-<p><span class="math notranslate nohighlight">\(
-AX = B
-\)</span></p>
-<p>dengan</p>
-<p><span class="math notranslate nohighlight">\(
-A=
-\begin{bmatrix}
-1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\
-2 &amp; -1 &amp; 1 &amp; 1 &amp; -1 \\
-1 &amp; 2 &amp; -1 &amp; 1 &amp; 1 \\
-3 &amp; 1 &amp; 1 &amp; -1 &amp; 1 \\
-1 &amp; -1 &amp; 2 &amp; 1 &amp; 2
-\end{bmatrix}
-\)</span></p>
-<p><span class="math notranslate nohighlight">\(
-X=
-\begin{bmatrix}
-x\\
-y\\
-z\\
-w\\
-v
-\end{bmatrix}
-\)</span></p>
-<p><span class="math notranslate nohighlight">\(
-B=
-\begin{bmatrix}
-15\\
-8\\
-12\\
-14\\
-13
-\end{bmatrix}
-\)</span></p>
-<p>Gunakan rumus :</p>
-<p><span class="math notranslate nohighlight">\(
-X = A^{-1}B
-\)</span></p>
-<p>Setelah invers matriks dihitung:</p>
-<p><span class="math notranslate nohighlight">\(
-A^{-1}=
-\left[
-\cdots
-\right]
-\)</span></p>
-<p>(dapat dihitung menggunakan Gauss–Jordan).
-Kemudian:</p>
-<p><span class="math notranslate nohighlight">\(
-X = A^{-1}B =
-\begin{bmatrix}
-3\\
-4\\
-2\\
-1\\
-5
-\end{bmatrix}
-\)</span></p>
-<p>Sehingga :</p>
-<p><span class="math notranslate nohighlight">\(x=3,y=4,z=2,w=1,v=5\)</span></p>
+<section class="tex2jax_ignore mathjax_ignore" id="pengelompokan-sistem-persamaan-linear">
+<h1>Pengelompokan Sistem Persamaan Linear<a class="headerlink" href="#pengelompokan-sistem-persamaan-linear" title="Link to this heading">#</a></h1>
+<p>Berdasarkan jumlah variabel dan bentuk persamaannya, SPL dapat diklasifikasikan menjadi beberapa jenis, yaitu:</p>
+<section id="sistem-homogen">
+<h2>1. Sistem Homogen<a class="headerlink" href="#sistem-homogen" title="Link to this heading">#</a></h2>
+<p>Sistem disebut homogen apabila seluruh konstanta pada ruas kanan bernilai nol (b=0).</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="metode-cramer">
-<h1>4.Metode Cramer<a class="headerlink" href="#metode-cramer" title="Link to this heading">#</a></h1>
-<p>Hitung determinan matriks koefisien:</p>
-<p><span class="math notranslate nohighlight">\(
-D = \det(A)
-\)</span></p>
-<p>Kemudian bentuk:</p>
-<p><span class="math notranslate nohighlight">\(
-D_x,\; D_y,\; D_z,\; D_w,\; D_v
-\)</span></p>
-<p>dengan mengganti kolom yang bersesuaian menggunakan vektor konstanta.</p>
-<p>Rumus:
-<span class="math notranslate nohighlight">\(
-\begin{aligned}
-x &amp;= \frac{D_x}{D}, \\[6pt]
-y &amp;= \frac{D_y}{D}, \\[6pt]
-z &amp;= \frac{D_z}{D}, \\[6pt]
-w &amp;= \frac{D_w}{D}, \\[6pt]
-v &amp;= \frac{D_v}{D}.
-\end{aligned}
-\)</span></p>
-<p>Hasil perhitungan:</p>
-<p><span class="math notranslate nohighlight">\(
-D = 44
-\)</span></p>
-<p><span class="math notranslate nohighlight">\(
-D_x = 132,\quad
-D_y = 176,\quad
-D_z = 88,\quad
-D_w = 44,\quad
-D_v = 220
-\)</span></p>
-<p>sehingga :</p>
-<p><span class="math notranslate nohighlight">\(
-\begin{aligned}
-x &amp;= \frac{132}{44} = 3, \\[6pt]
-y &amp;= \frac{176}{44} = 4, \\[6pt]
-z &amp;= \frac{88}{44} = 2, \\[6pt]
-w &amp;= \frac{44}{44} = 1, \\[6pt]
-v &amp;= \frac{220}{44} = 5.
-\end{aligned}
-\)</span></p>
+<section id="sistem-non-homogen">
+<h2>2. Sistem Non-Homogen<a class="headerlink" href="#sistem-non-homogen" title="Link to this heading">#</a></h2>
+<p>Sistem non-homogen adalah sistem yang memiliki setidaknya satu konstanta pada ruas kanan yang tidak sama dengan nol (b
+=0).</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="validasi-kode-program-menggunakan-python-numpy">
-<h1>Validasi Kode Program Menggunakan Python (NumPy)<a class="headerlink" href="#validasi-kode-program-menggunakan-python-numpy" title="Link to this heading">#</a></h1>
-<p>Validasi ini bertujuan untuk memastikan bahwa solusi yang diperoleh secara manual sudah benar dan konsisten</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-
-<span class="c1"># Matriks koefisien</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
-
-<span class="c1"># Matriks konstanta</span>
-<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
-
-<span class="c1"># Menyelesaikan SPL</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Solusi SPL:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x =&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;y =&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;z =&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;w =&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;v =&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
-</pre></div>
+<section id="persamaan-linear-dan-nonlinear">
+<h2>3. Persamaan Linear dan Nonlinear<a class="headerlink" href="#persamaan-linear-dan-nonlinear" title="Link to this heading">#</a></h2>
+<p>Suatu sistem dikatakan linear apabila setiap variabel berpangkat satu dan tidak terdapat perkalian antarvariabel. Sebaliknya, jika terdapat variabel berpangkat lebih dari satu atau hasil kali antarvariabel, maka sistem tersebut termasuk sistem non-linear.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="karakteristik-dan-jenis-solusi-spl">
+<h1>Karakteristik dan Jenis Solusi SPL<a class="headerlink" href="#karakteristik-dan-jenis-solusi-spl" title="Link to this heading">#</a></h1>
+<p>Sebuah Sistem Persamaan Linear dapat menghasilkan beberapa kemungkinan solusi, tergantung pada hubungan antar persamaannya.</p>
+<section id="solusi-tunggal">
+<h2>1. Solusi Tunggal<a class="headerlink" href="#solusi-tunggal" title="Link to this heading">#</a></h2>
+<p>Terjadi ketika sistem memiliki tepat satu himpunan nilai variabel yang memenuhi seluruh persamaan.</p>
+</section>
+<section id="solusi-tak-hingga">
+<h2>2. Solusi Tak Hingga<a class="headerlink" href="#solusi-tak-hingga" title="Link to this heading">#</a></h2>
+<p>Muncul apabila terdapat lebih dari satu kombinasi nilai variabel yang memenuhi semua persamaan. Kondisi ini biasanya terjadi karena adanya ketergantungan antar persamaan.</p>
+</section>
+<section id="tidak-memiliki-solusi">
+<h2>3. Tidak Memiliki Solusi<a class="headerlink" href="#tidak-memiliki-solusi" title="Link to this heading">#</a></h2>
+<p>Sistem tidak mempunyai solusi jika terdapat pertentangan antar persamaan sehingga tidak ada nilai variabel yang dapat memenuhi semuanya sekaligus.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="representasi-spl-dalam-bentuk-matriks">
+<h1>Representasi SPL dalam Bentuk Matriks<a class="headerlink" href="#representasi-spl-dalam-bentuk-matriks" title="Link to this heading">#</a></h1>
+<p>Untuk mempermudah proses perhitungan, Sistem Persamaan Linear sering dituliskan dalam bentuk matriks.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="matriks-koefisien-a">
+<h1>Matriks Koefisien (A)<a class="headerlink" href="#matriks-koefisien-a" title="Link to this heading">#</a></h1>
+<p>Matriks yang berisi seluruh koefisien variabel dari sistem persamaan.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="vektor-variabel-x">
+<h1>Vektor Variabel (X)<a class="headerlink" href="#vektor-variabel-x" title="Link to this heading">#</a></h1>
+<p>Vektor yang memuat variabel-variabel yang akan dicari nilainya.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="vektor-konstanta-b">
+<h1>Vektor Konstanta (B)<a class="headerlink" href="#vektor-konstanta-b" title="Link to this heading">#</a></h1>
+<p>Vektor yang berisi nilai konstanta pada ruas kanan setiap persamaan.</p>
+<p>Dengan demikian, SPL dapat dinyatakan dalam bentuk:</p>
+<p>AX=B</p>
+<p>Selain itu, untuk keperluan eliminasi dan operasi baris, sering digunakan matriks augmented, yaitu penggabungan antara matriks koefisien dan vektor konstanta:</p>
+<p><span class="math notranslate nohighlight">\([A∣B]\)</span></p>
+<p>Bentuk ini sangat membantu dalam penerapan metode Eliminasi Gauss maupun Eliminasi Gauss-Jordan.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="penyelesaian-komputasi-menggunakan-sagemath">
+<h1>Penyelesaian Komputasi Menggunakan SageMath<a class="headerlink" href="#penyelesaian-komputasi-menggunakan-sagemath" title="Link to this heading">#</a></h1>
+<p>Selain dapat diselesaikan secara manual, Sistem Persamaan Linear juga dapat dianalisis menggunakan perangkat lunak matematika seperti SageMath. Dengan bantuan SageMath, proses perhitungan menjadi lebih cepat, akurat, dan efisien, terutama untuk sistem berukuran besar.</p>
+<p>Melalui SageMath, pengguna dapat:</p>
+<p>Membentuk matriks dan vektor secara otomatis.
+Melakukan operasi baris elementer.
+Menghitung determinan matriks.
+Menentukan invers matriks.
+Menyelesaikan SPL menggunakan berbagai metode numerik maupun aljabar.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="sagemath-cell-interaktif">
+<h1>SageMath Cell Interaktif<a class="headerlink" href="#sagemath-cell-interaktif" title="Link to this heading">#</a></h1>
+<p>SageMath menyediakan fasilitas SageMath Cell, yaitu lingkungan komputasi daring yang memungkinkan pengguna menjalankan kode matematika tanpa perlu menginstal perangkat lunak tambahan. Fasilitas ini sangat bermanfaat untuk memverifikasi hasil perhitungan manual dan mendukung proses pembelajaran matematika komputasional.</p>
+<div id="mycell">
+<script type="text/x-sage">
+A = matrix(QQ, 4, 4, [1, 2, 3, 4,
+                      5, 6, 7, 8,
+                      9, 10, 11, 12,
+                      13, 14, 15, 16])
+<p>A.rref()
+</script></p>
 </div>
-<p>Link collab :
-<a class="reference external" href="https://colab.research.google.com/drive/17TedJMeiGrQSLCl7ee1k3r1ZPX2Tk9YJ?usp=sharing">https://colab.research.google.com/drive/17TedJMeiGrQSLCl7ee1k3r1ZPX2Tk9YJ?usp=sharing</a></p>
+<script>
+sagecell.makeSagecell({
+    inputLocation: '#mycell',
+    autoeval: false
+});
+</script>
 </section>
 
     <script type="text/x-thebe-config">
@@ -918,20 +724,20 @@ v &amp;= \frac{220}{44} = 5.
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="materi1.html"
+       href="materi3.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Materi 1 : Pengantar Materi KAL</p>
+        <p class="prev-next-title">Materi 3 : eliminasi gaussion</p>
       </div>
     </a>
     <a class="right-next"
-       href="materi3.html"
+       href="materi5.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Materi 3 : eliminasi gaussion</p>
+        <p class="prev-next-title">Materi 5: Materi tentang Determinan dan Invers Matriks</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -953,12 +759,27 @@ v &amp;= \frac{220}{44} = 5.
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Materi 2 : Persamaan linear</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-eliminasi-gauss">1. Metode Eliminasi gauss</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-gaussjordan">2. Metode Gauss–Jordan</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-matriks-invers">3. Metode Matriks Invers</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-cramer">4.Metode Cramer</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#validasi-kode-program-menggunakan-python-numpy">Validasi Kode Program Menggunakan Python (NumPy)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Materi 4: Konsep Dasar Teori Sistem Persamaan Linear</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#d-landasan-teoretis-sistem-persamaan-linear">D. Landasan Teoretis Sistem Persamaan Linear</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#konsep-dasar-sistem-persamaan-linear">Konsep Dasar Sistem Persamaan Linear</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pengelompokan-sistem-persamaan-linear">Pengelompokan Sistem Persamaan Linear</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sistem-homogen">1. Sistem Homogen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sistem-non-homogen">2. Sistem Non-Homogen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#persamaan-linear-dan-nonlinear">3. Persamaan Linear dan Nonlinear</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#karakteristik-dan-jenis-solusi-spl">Karakteristik dan Jenis Solusi SPL</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solusi-tunggal">1. Solusi Tunggal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solusi-tak-hingga">2. Solusi Tak Hingga</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tidak-memiliki-solusi">3. Tidak Memiliki Solusi</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#representasi-spl-dalam-bentuk-matriks">Representasi SPL dalam Bentuk Matriks</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-koefisien-a">Matriks Koefisien (A)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vektor-variabel-x">Vektor Variabel (X)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vektor-konstanta-b">Vektor Konstanta (B)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#penyelesaian-komputasi-menggunakan-sagemath">Penyelesaian Komputasi Menggunakan SageMath</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sagemath-cell-interaktif">SageMath Cell Interaktif</a></li>
 </ul>
 
   </nav></div>

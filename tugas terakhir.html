@@ -1,0 +1,1088 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Tugas Singular Value Decomposition (SVD) pada Kompresi Citra &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tugas terakhir';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Tugas Transformasi sumbu Y menggunakan Translasi dan pencerminan" href="Tugas%20Transformasi%20sumbu%20Y%20menggunakan%20Translasi%20dan%20pencerminan.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo1.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <img src="_static/logo1.png" class="logo__image only-dark pst-js-only" alt="My sample book - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Profil Saya
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="materi1.html">Materi 1 : Pengantar Materi KAL</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="materi2.html">Materi 2 : Persamaan linear</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="materi3.html">Materi 3 : eliminasi gaussion</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="materi4.html">Materi 4: Konsep Dasar Teori Sistem Persamaan Linear</a></li>
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="materi5.html">Materi 5: Materi tentang Determinan dan Invers Matriks</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="materi6.html">Materi 6 : Eigen Value dan Eigen Vektor dengan Dekomposi QR</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="materi7.html">Materi 7: Transformasi Matriks dan Implementasinya pada Vektor 2D</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Tugas%20Eliminasi.html">Tugas Eliminasi Gauss</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="tugas%20uts.html">Tugas Ujian Tengah semester</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="tugas%20determinan%20dan%20invers.html">Perhitungan Determinan dan Invers</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Tugas%20Transformasi%20sumbu%20Y%20menggunakan%20Translasi%20dan%20pencerminan.html">Tugas Transformasi sumbu Y menggunakan Translasi dan pencerminan</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tugas Singular Value Decomposition (SVD) pada Kompresi Citra</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Ftugas terakhir.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/tugas terakhir.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Tugas Singular Value Decomposition (SVD) pada Kompresi Citra</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tugas Singular Value Decomposition (SVD) pada Kompresi Citra</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#svd-eigentface">SVD Eigentface</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-output-program-face-recognition-menggunakan-eigenface-dan-svd">Hasil Output Program Face Recognition Menggunakan EigenFace dan SVD</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-utama-metode-eigenface-adalah">Tujuan utama metode EigenFace adalah:</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membaca-dataset-wajah">Membaca Dataset Wajah</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mengubah-gambar-menjadi-vektor">Mengubah Gambar Menjadi Vektor</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membentuk-matriks-wajah">Membentuk Matriks Wajah</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-mean-face">Menghitung Mean Face</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membentuk-matriks-a">Membentuk Matriks A</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-dilakukan-svd">Tujuan Dilakukan SVD</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-svd">Menghitung SVD</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#singular-value">Singular Value</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membentuk-eigenface">Membentuk EigenFace</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menampilkan-eigenface">Menampilkan EigenFace</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mengubah-wajah-menjadi-weight">Mengubah Wajah Menjadi Weight</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#training-selesai">Training Selesai</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#memproses-gambar-test">Memproses Gambar Test</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-jarak-kemiripan">Menghitung Jarak Kemiripan</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-wajah-terdekat">Menentukan Wajah Terdekat</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#text-best">$
+\text{best}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-face-recognition">Hasil Face Recognition</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#alur-lengkap-face-recognition-dengan-eigenface">Alur Lengkap Face Recognition dengan EigenFace</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="tugas-singular-value-decomposition-svd-pada-kompresi-citra">
+<h1>Tugas Singular Value Decomposition (SVD) pada Kompresi Citra<a class="headerlink" href="#tugas-singular-value-decomposition-svd-pada-kompresi-citra" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="svd-eigentface">
+<h1>SVD Eigentface<a class="headerlink" href="#svd-eigentface" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://colab.research.google.com/drive/1z4moT04MU3egMHzWTHW5TgDzFPlFPd7F?usp=sharing">https://colab.research.google.com/drive/1z4moT04MU3egMHzWTHW5TgDzFPlFPd7F?usp=sharing</a></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="hasil-output-program-face-recognition-menggunakan-eigenface-dan-svd">
+<h1>Hasil Output Program Face Recognition Menggunakan EigenFace dan SVD<a class="headerlink" href="#hasil-output-program-face-recognition-menggunakan-eigenface-dan-svd" title="Link to this heading">#</a></h1>
+<p>Pada program:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">U</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">VT</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span>
+    <span class="n">A</span><span class="p">,</span>
+    <span class="n">full_matrices</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>diperoleh output seperti:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Dataset</span> <span class="n">ditemukan</span> <span class="n">di</span><span class="p">:</span> <span class="o">./</span><span class="n">dataset</span>
+
+<span class="n">Loading</span> <span class="n">dataset</span><span class="o">...</span>
+<span class="n">Andi</span> <span class="o">-&gt;</span> <span class="mi">10</span> <span class="n">gambar</span>
+<span class="n">Budi</span> <span class="o">-&gt;</span> <span class="mi">10</span> <span class="n">gambar</span>
+<span class="n">Citra</span> <span class="o">-&gt;</span> <span class="mi">10</span> <span class="n">gambar</span>
+
+<span class="n">Shape</span> <span class="n">faces</span> <span class="p">:</span> <span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+<span class="n">Jumlah</span> <span class="n">label</span> <span class="p">:</span> <span class="mi">30</span>
+
+<span class="n">Shape</span> <span class="n">A</span> <span class="p">:</span> <span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+
+<span class="n">Menghitung</span> <span class="n">SVD</span><span class="o">...</span>
+<span class="n">Jumlah</span> <span class="n">EigenFace</span> <span class="p">:</span> <span class="mi">20</span>
+
+<span class="n">Training</span> <span class="n">selesai</span>
+
+<span class="n">FACE</span> <span class="n">RECOGNITION</span>
+<span class="n">Orang</span> <span class="n">paling</span> <span class="n">mirip</span> <span class="p">:</span> <span class="n">Andi</span>
+<span class="n">Distance</span> <span class="p">:</span> <span class="mf">128.45</span>
+</pre></div>
+</div>
+<p>Artinya sistem berhasil melakukan proses Face Recognition menggunakan metode EigenFace berbasis Singular Value Decomposition (SVD).</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="tujuan-utama-metode-eigenface-adalah">
+<h1>Tujuan utama metode EigenFace adalah:<a class="headerlink" href="#tujuan-utama-metode-eigenface-adalah" title="Link to this heading">#</a></h1>
+<p><span class="math notranslate nohighlight">\(
+\begin{itemize}
+\item Mengekstraksi ciri-ciri penting wajah.
+\item Mengurangi dimensi data wajah.
+\item Mengenali identitas seseorang dari gambar wajah.
+\end{itemize}\)</span></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="membaca-dataset-wajah">
+<h1>Membaca Dataset Wajah<a class="headerlink" href="#membaca-dataset-wajah" title="Link to this heading">#</a></h1>
+<p>Saat program dijalankan, setiap gambar dibaca dalam bentuk grayscale.
+Ukuran gambar yang digunakan adalah:</p>
+<p><span class="math notranslate nohighlight">\(
+100x100
+\)</span></p>
+<p>Artinya:
+<span class="math notranslate nohighlight">\(
+\begin{itemize}
+\item Lebar = 100 piksel
+\item Tinggi = 100 piksel
+\end{itemize}\)</span></p>
+<p>Jumlah piksel:</p>
+<p><span class="math notranslate nohighlight">\(
+100x100 = 10000
+\)</span></p>
+<p>Setiap gambar wajah direpresentasikan sebagai 10000 nilai intensitas piksel.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="mengubah-gambar-menjadi-vektor">
+<h1>Mengubah Gambar Menjadi Vektor<a class="headerlink" href="#mengubah-gambar-menjadi-vektor" title="Link to this heading">#</a></h1>
+<p>Gambar berukuran <span class="math notranslate nohighlight">\(100x100\)</span> diubah menjadi vektor satu dimensi.</p>
+<p>Contoh:</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{bmatrix}
+10 &amp; 20\\
+30 &amp; 40
+\end{bmatrix}
+\rightarrow
+[10,20,30,40]
+\)</span></p>
+<p>Untuk gambar wajah:</p>
+<p><span class="math notranslate nohighlight">\(
+100x100 = 10000
+\)</span></p>
+<p>maka setiap wajah direpresentasikan sebagai:</p>
+<p><span class="math notranslate nohighlight">\(
+x_i = (1x10000)
+\)</span></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="membentuk-matriks-wajah">
+<h1>Membentuk Matriks Wajah<a class="headerlink" href="#membentuk-matriks-wajah" title="Link to this heading">#</a></h1>
+<p>Setelah seluruh gambar dibaca, diperoleh output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Shape</span> <span class="n">faces</span> <span class="p">:</span> <span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Artinya matriks data wajah:</p>
+<p><span class="math notranslate nohighlight">\(
+X = (30x10000)
+\)</span></p>
+<p>dengan:
+<span class="math notranslate nohighlight">\(
+\begin{itemize}
+\item 30 baris = jumlah gambar wajah
+\item 10000 kolom = jumlah piksel
+\end{itemize}\)</span></p>
+<p>Setiap baris mewakili satu wajah.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="menghitung-mean-face">
+<h1>Menghitung Mean Face<a class="headerlink" href="#menghitung-mean-face" title="Link to this heading">#</a></h1>
+<p>Wajah rata-rata dihitung menggunakan:</p>
+<p><span class="math notranslate nohighlight">\(
+\mu =
+\frac{1}{N}
+\sum_{i=1}^{N} x_i
+\)</span></p>
+<p>dengan:
+<span class="math notranslate nohighlight">\(
+\begin{itemize}
+\item N = jumlah gambar
+\item x_i = wajah ke-i
+\end{itemize}\)</span></p>
+<p>Mean Face digunakan sebagai wajah rata-rata seluruh dataset.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="membentuk-matriks-a">
+<h1>Membentuk Matriks A<a class="headerlink" href="#membentuk-matriks-a" title="Link to this heading">#</a></h1>
+<p>Setiap wajah dikurangi dengan wajah rata-rata:</p>
+<p><span class="math notranslate nohighlight">\(
+A = X - \mu
+\)</span></p>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Shape</span> <span class="n">A</span> <span class="p">:</span> <span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Tujuannya adalah menghilangkan informasi umum dan menyisakan karakteristik unik setiap wajah.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="tujuan-dilakukan-svd">
+<h1>Tujuan Dilakukan SVD<a class="headerlink" href="#tujuan-dilakukan-svd" title="Link to this heading">#</a></h1>
+<p>Metode EigenFace menggunakan dekomposisi:
+<span class="math notranslate nohighlight">\(
+A = U\Sigma V^T
+\)</span></p>
+<p>untuk memecah data wajah menjadi beberapa komponen utama.</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Matriks &amp; Fungsi \\
+\hline
+u &amp; Hubungan antar gambar wajah \\
+\Sigma &amp; Tingkat kepentingan fitur \\
+V^T &amp; EigenFace \\
+\hline
+\end{tabular}
+\end{center}\)</span></p>
+<p>Secara sederhana:</p>
+<p><span class="math notranslate nohighlight">\(\begin{itemize}
+\item U = pola kemunculan wajah
+\item \Sigma = kekuatan informasi
+\item V^T = ciri-ciri utama wajah
+\end{itemize}\)</span></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="menghitung-svd">
+<h1>Menghitung SVD<a class="headerlink" href="#menghitung-svd" title="Link to this heading">#</a></h1>
+<p>Misalkan:</p>
+<p><span class="math notranslate nohighlight">\(
+A=(30 \times 10000)
+\)</span></p>
+<p>Maka hasil SVD:</p>
+<p><span class="math notranslate nohighlight">\(
+U=(30 \times 30)
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+S=(30)
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+V^T=(30 \times 10000)
+\)</span></p>
+<p>SVD digunakan untuk menemukan arah variasi terbesar pada kumpulan wajah.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="singular-value">
+<h1>Singular Value<a class="headerlink" href="#singular-value" title="Link to this heading">#</a></h1>
+<p>Singular value diperoleh dalam bentuk:</p>
+<p><span class="math notranslate nohighlight">\(
+S =
+[\sigma_1,\sigma_2,\sigma_3,\ldots,\sigma_n]
+\)</span></p>
+<p>Nilai singular menunjukkan tingkat kepentingan suatu fitur wajah.</p>
+<p>Semakin besar nilai:</p>
+<p><span class="math notranslate nohighlight">\(
+\sigma_i
+\)</span></p>
+<p>maka semakin penting fitur tersebut.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="membentuk-eigenface">
+<h1>Membentuk EigenFace<a class="headerlink" href="#membentuk-eigenface" title="Link to this heading">#</a></h1>
+<p>Program menggunakan:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">eigenfaces</span> <span class="o">=</span> <span class="n">VT</span><span class="p">[:</span><span class="mi">20</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Jumlah</span> <span class="n">EigenFace</span> <span class="p">:</span> <span class="mi">20</span>
+</pre></div>
+</div>
+<p>Artinya hanya 20 komponen terpenting yang digunakan.
+Secara matematis:</p>
+<p><span class="math notranslate nohighlight">\(
+E=
+\begin{bmatrix}
+e_1\\
+e_2\\
+e_3\\
+\vdots\\
+e_{20}
+\end{bmatrix}
+\)</span></p>
+<p>Setiap <span class="math notranslate nohighlight">\(e_i\)</span> disebut EigenFace.
+EigenFace menyimpan informasi penting seperti:</p>
+<p><span class="math notranslate nohighlight">\(\begin{itemize}
+\item Bentuk mata
+\item Bentuk hidung
+\item Bentuk mulut
+\item Kontur wajah
+\item Pencahayaan
+\end{itemize}\)</span></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="menampilkan-eigenface">
+<h1>Menampilkan EigenFace<a class="headerlink" href="#menampilkan-eigenface" title="Link to this heading">#</a></h1>
+<p>EigenFace yang ditampilkan bukan wajah asli seseorang.
+EigenFace merupakan pola matematis hasil kombinasi seluruh wajah pada dataset.
+Biasanya terlihat sebagai bayangan wajah hitam putih yang samar.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="mengubah-wajah-menjadi-weight">
+<h1>Mengubah Wajah Menjadi Weight<a class="headerlink" href="#mengubah-wajah-menjadi-weight" title="Link to this heading">#</a></h1>
+<p>Setiap wajah diproyeksikan ke ruang EigenFace:</p>
+<p><span class="math notranslate nohighlight">\(
+w = Ex
+\)</span></p>
+<p>dengan:
+<span class="math notranslate nohighlight">\(
+\begin{itemize}
+\item E = EigenFace
+\item X = wajah
+\end{itemize}\)</span></p>
+<p>Hasilnya:</p>
+<p>$
+w =
+[w_1,w_2,w_3,\ldots,w_{20}]</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1><a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<p>$</p>
+<p>Weight vector digunakan sebagai representasi wajah.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="training-selesai">
+<h1>Training Selesai<a class="headerlink" href="#training-selesai" title="Link to this heading">#</a></h1>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Training</span> <span class="n">selesai</span>
+</pre></div>
+</div>
+<p>Artinya seluruh wajah training berhasil diubah menjadi weight vector.
+Sistem tidak lagi membandingkan gambar asli, tetapi membandingkan weight vector yang jauh lebih kecil dimensinya.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="memproses-gambar-test">
+<h1>Memproses Gambar Test<a class="headerlink" href="#memproses-gambar-test" title="Link to this heading">#</a></h1>
+<p>Gambar uji diproyeksikan ke ruang EigenFace:</p>
+<p><span class="math notranslate nohighlight">\(
+w_{test}=E x_{test}
+\)</span></p>
+<p>Hasilnya adalah weight vector dari wajah yang akan dikenali.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="menghitung-jarak-kemiripan">
+<h1>Menghitung Jarak Kemiripan<a class="headerlink" href="#menghitung-jarak-kemiripan" title="Link to this heading">#</a></h1>
+<p>Kemiripan dihitung menggunakan jarak Euclidean:</p>
+<p><span class="math notranslate nohighlight">\(
+d=
+\sqrt{
+\sum_{i=1}^{n}
+(x_i-y_i)^2
+}
+\)</span></p>
+<p>Semakin kecil nilai <span class="math notranslate nohighlight">\(d\)</span>, maka semakin mirip kedua wajah.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="menentukan-wajah-terdekat">
+<h1>Menentukan Wajah Terdekat<a class="headerlink" href="#menentukan-wajah-terdekat" title="Link to this heading">#</a></h1>
+<p>Sistem mencari nilai jarak terkecil:</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="text-best">
+<h1>$
+\text{best}<a class="headerlink" href="#text-best" title="Link to this heading">#</a></h1>
+<p>\arg\min(d_i)
+$</p>
+<p>Contoh:</p>
+<p><span class="math notranslate nohighlight">\(\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Orang &amp; Distance \\
+\hline
+Andi &amp; 128 \\
+Budi &amp; 310 \\
+Citra &amp; 275 \\
+\hline
+\end{tabular}
+\end{center}\)</span></p>
+<p>Karena nilai terkecil dimiliki Andi, maka wajah tersebut dipilih sebagai hasil pengenalan.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="hasil-face-recognition">
+<h1>Hasil Face Recognition<a class="headerlink" href="#hasil-face-recognition" title="Link to this heading">#</a></h1>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FACE</span> <span class="n">RECOGNITION</span>
+
+<span class="n">Orang</span> <span class="n">paling</span> <span class="n">mirip</span> <span class="p">:</span> <span class="n">Andi</span>
+
+<span class="n">Distance</span> <span class="p">:</span> <span class="mf">128.45</span>
+</pre></div>
+</div>
+<p>Artinya gambar test memiliki kemiripan tertinggi dengan wajah milik Andi pada dataset.
+Nilai distance sebesar:</p>
+<p><span class="math notranslate nohighlight">\(
+128.45
+\)</span></p>
+<p>menunjukkan tingkat kemiripan hasil pencocokan.
+Semakin mendekati nol, maka wajah semakin mirip.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="alur-lengkap-face-recognition-dengan-eigenface">
+<h1>Alur Lengkap Face Recognition dengan EigenFace<a class="headerlink" href="#alur-lengkap-face-recognition-dengan-eigenface" title="Link to this heading">#</a></h1>
+<p><span class="math notranslate nohighlight">\(\begin{enumerate}
+\item Membaca seluruh gambar wajah.
+\item Resize menjadi 100x100
+\item Mengubah gambar menjadi vektor 10000 piksel.
+\item Menghitung Mean Face.
+\item Membentuk matriks:
+\[
+A = X - \mu
+\]
+\item Menghitung SVD:
+\[
+A = U\Sigma V^T
+\]
+\item Mengambil 20 EigenFace.
+\item Memproyeksikan data training menjadi weight vector.
+\item Memproyeksikan gambar test menjadi weight vector.
+\item Menghitung jarak Euclidean.
+\item Mencari jarak terkecil.
+\item Menampilkan identitas wajah yang paling mirip.
+\end{enumerate}
+\)</span></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="kesimpulan">
+<h1>Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h1>
+<p>Metode EigenFace berbasis Singular Value Decomposition (SVD) digunakan untuk mengekstraksi fitur-fitur penting dari wajah dan mengurangi dimensi data dari 10000 piksel menjadi 20 komponen utama (EigenFace). Setiap wajah kemudian direpresentasikan dalam bentuk weight vector dan dibandingkan menggunakan jarak Euclidean. Wajah dengan jarak terkecil terhadap gambar uji dianggap sebagai wajah yang paling mirip dan ditampilkan sebagai hasil pengenalan wajah. Dengan cara ini, proses identifikasi menjadi lebih cepat, efisien, dan tetap mampu mempertahankan karakteristik utama wajah.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Tugas%20Transformasi%20sumbu%20Y%20menggunakan%20Translasi%20dan%20pencerminan.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Tugas Transformasi sumbu Y menggunakan Translasi dan pencerminan</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tugas Singular Value Decomposition (SVD) pada Kompresi Citra</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#svd-eigentface">SVD Eigentface</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-output-program-face-recognition-menggunakan-eigenface-dan-svd">Hasil Output Program Face Recognition Menggunakan EigenFace dan SVD</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-utama-metode-eigenface-adalah">Tujuan utama metode EigenFace adalah:</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membaca-dataset-wajah">Membaca Dataset Wajah</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mengubah-gambar-menjadi-vektor">Mengubah Gambar Menjadi Vektor</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membentuk-matriks-wajah">Membentuk Matriks Wajah</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-mean-face">Menghitung Mean Face</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membentuk-matriks-a">Membentuk Matriks A</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-dilakukan-svd">Tujuan Dilakukan SVD</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-svd">Menghitung SVD</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#singular-value">Singular Value</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membentuk-eigenface">Membentuk EigenFace</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menampilkan-eigenface">Menampilkan EigenFace</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mengubah-wajah-menjadi-weight">Mengubah Wajah Menjadi Weight</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#training-selesai">Training Selesai</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#memproses-gambar-test">Memproses Gambar Test</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-jarak-kemiripan">Menghitung Jarak Kemiripan</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-wajah-terdekat">Menentukan Wajah Terdekat</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#text-best">$
+\text{best}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-face-recognition">Hasil Face Recognition</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#alur-lengkap-face-recognition-dengan-eigenface">Alur Lengkap Face Recognition dengan EigenFace</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

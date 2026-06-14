@@ -172,13 +172,13 @@ $
 
 Eliminasi elemen di atas pivot kelima:
 
-$\[
+$
 \begin{aligned}
 R_4 &\leftarrow R_4 + \frac{2}{11}R_5 \\
 R_3 &\leftarrow R_3 - \frac{3}{7}R_5 \\
 R_1 &\leftarrow R_1 - R_5
 \end{aligned}
-\]$
+$
 
 Lanjutkan hingga seluruh elemen di atas pivot menjadi nol.
 Hasil akhirnya:
@@ -201,9 +201,9 @@ $(x,y,z,w,v)=(3,4,2,1,5)$
 # 3. Metode Matriks Invers
 Tuliskan :
 
-$\[
+$
 AX = B
-\]$
+$
 
 dengan 
 
@@ -229,7 +229,7 @@ v
 \end{bmatrix}
 $
 
-$\[
+$
 B=
 \begin{bmatrix}
 15\\
@@ -238,27 +238,27 @@ B=
 14\\
 13
 \end{bmatrix}
-\]$
+$
 
 Gunakan rumus :
 
-$\[
+$
 X = A^{-1}B
-\]$
+$
 
 Setelah invers matriks dihitung:
 
-$\[
+$
 A^{-1}=
 \left[
 \cdots
 \right]
-\]$
+$
 
 (dapat dihitung menggunakan Gauss–Jordan).
 Kemudian:
 
-$\[
+$
 X = A^{-1}B =
 \begin{bmatrix}
 3\\
@@ -267,7 +267,7 @@ X = A^{-1}B =
 1\\
 5
 \end{bmatrix}
-\]$
+$
 
 Sehingga :
 
@@ -277,20 +277,20 @@ $x=3,y=4,z=2,w=1,v=5$
 
 Hitung determinan matriks koefisien:
 
-$\[
+$
 D = \det(A)
-\]$
+$
 
 Kemudian bentuk:
 
-$\[
+$
 D_x,\; D_y,\; D_z,\; D_w,\; D_v
-\]$
+$
 
 dengan mengganti kolom yang bersesuaian menggunakan vektor konstanta.
 
 Rumus:
-$\[
+$
 \begin{aligned}
 x &= \frac{D_x}{D}, \\[6pt]
 y &= \frac{D_y}{D}, \\[6pt]
@@ -298,25 +298,25 @@ z &= \frac{D_z}{D}, \\[6pt]
 w &= \frac{D_w}{D}, \\[6pt]
 v &= \frac{D_v}{D}.
 \end{aligned}
-\]$
+$
 
 Hasil perhitungan:
 
-$\[
+$
 D = 44
-\]$
+$
 
-$\[
+$
 D_x = 132,\quad
 D_y = 176,\quad
 D_z = 88,\quad
 D_w = 44,\quad
 D_v = 220
-\]$
+$
 
 sehingga :
 
-$\[
+$
 \begin{aligned}
 x &= \frac{132}{44} = 3, \\[6pt]
 y &= \frac{176}{44} = 4, \\[6pt]
@@ -324,7 +324,7 @@ z &= \frac{88}{44} = 2, \\[6pt]
 w &= \frac{44}{44} = 1, \\[6pt]
 v &= \frac{220}{44} = 5.
 \end{aligned}
-\]$
+$
 
 
 # Validasi Kode Program Menggunakan Python (NumPy)

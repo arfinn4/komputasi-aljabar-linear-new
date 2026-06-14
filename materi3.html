@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Materi 2 : Persamaan linear &#8212; My sample book</title>
+    <title>Materi 3 : eliminasi gaussion &#8212; My sample book</title>
   
   
   
@@ -62,11 +62,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'materi2';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'materi3';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Materi 3 : eliminasi gaussion" href="materi3.html" />
-    <link rel="prev" title="Materi 1 : Pengantar Materi KAL" href="materi1.html" />
+    <link rel="next" title="Materi 4: Konsep Dasar Teori Sistem Persamaan Linear" href="materi4.html" />
+    <link rel="prev" title="Materi 2 : Persamaan linear" href="materi2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -178,13 +178,13 @@
 
 
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Materi 2 : Persamaan linear</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materi2.html">Materi 2 : Persamaan linear</a></li>
 
 
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="materi3.html">Materi 3 : eliminasi gaussion</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Materi 3 : eliminasi gaussion</a></li>
 
 
 
@@ -443,7 +443,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fmateri2.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fmateri3.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -473,7 +473,7 @@
       
       
       
-      <li><a href="_sources/materi2.md" target="_blank"
+      <li><a href="_sources/materi3.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -549,7 +549,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Materi 2 : Persamaan linear</h1>
+    <h1>Materi 3 : eliminasi gaussion</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -559,12 +559,16 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Materi 2 : Persamaan linear</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-eliminasi-gauss">1. Metode Eliminasi gauss</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-gaussjordan">2. Metode Gauss–Jordan</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-matriks-invers">3. Metode Matriks Invers</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-cramer">4.Metode Cramer</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#validasi-kode-program-menggunakan-python-numpy">Validasi Kode Program Menggunakan Python (NumPy)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Materi 3 : eliminasi gaussion</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-transformasi-matriks-dengan-operasi-baris-elementer-obe">Proses Transformasi Matriks dengan Operasi Baris Elementer (OBE)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-1-menentukan-pivot-pada-kolom-pertama">Tahap 1: Menentukan Pivot pada Kolom Pertama</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-2-menghilangkan-elemen-pada-kolom-kelima">Tahap 2: Menghilangkan Elemen pada Kolom Kelima</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-3-menghilangkan-elemen-pada-kolom-keempat">Tahap 3: Menghilangkan Elemen pada Kolom Keempat</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-4-menghilangkan-elemen-pada-kolom-ketiga">Tahap 4: Menghilangkan Elemen pada Kolom Ketiga</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-5-menyelesaikan-kolom-kedua">Tahap 5: Menyelesaikan Kolom Kedua</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-himpunan-penyelesaian">Menentukan Himpunan Penyelesaian</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#validasi-logika-menggunakan-kode-python-numpy">Validasi Logika Menggunakan Kode Python (NumPy)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#link-collabnya">Link collabnya :</a></li>
 </ul>
 
             </nav>
@@ -577,314 +581,133 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="materi-2-persamaan-linear">
-<h1>Materi 2 : Persamaan linear<a class="headerlink" href="#materi-2-persamaan-linear" title="Link to this heading">#</a></h1>
-<p>penyelesaian sistem dengan 5 persamaan dan 5 variabel menggunakan beberapa metode yang berbeda.
-Contoh sistem persamaan linear 5×5:</p>
-<p><span class="math notranslate nohighlight">\(
-\begin{cases}
-x + y + z + w + v = 15 \\
-2x - y + z + w - v = 8 \\
-x + 2y - z + w + v = 12 \\
-3x + y + z - w + v = 14 \\
-x - y + 2z + w + 2v = 13
-\end{cases}
-\)</span></p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="metode-eliminasi-gauss">
-<h1>1. Metode Eliminasi gauss<a class="headerlink" href="#metode-eliminasi-gauss" title="Link to this heading">#</a></h1>
-<p>Langkah 1: Bentuk Matriks Augmented</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="materi-3-eliminasi-gaussion">
+<h1>Materi 3 : eliminasi gaussion<a class="headerlink" href="#materi-3-eliminasi-gaussion" title="Link to this heading">#</a></h1>
+<p>C. Analisis Kasus Eliminasi Gaussian pada SPL Berordo 5×5
+Pada bagian ini akan dibahas proses penyelesaian Sistem Persamaan Linear (SPL) berordo 5×5 menggunakan metode Eliminasi Gaussian. Metode ini merupakan salah satu teknik yang paling umum digunakan dalam aljabar linear untuk menentukan nilai variabel yang memenuhi seluruh persamaan dalam suatu sistem.</p>
+<p>Representasi Sistem Persamaan Linear ke dalam Bentuk Matriks</p>
+<p>Sebelum melakukan proses eliminasi, sistem persamaan terlebih dahulu dinyatakan dalam bentuk matematis sebagai berikut:</p>
+<p><span class="math notranslate nohighlight">\(\begin{align}
+x_1 + x_2 + x_3 + x_4 + x_5 &amp;= 1 \\
+x_2 + x_3 + x_4 + x_5 &amp;= 2 \\
+x_3 + x_4 + x_5 &amp;= 3 \\
+x_4 + x_5 &amp;= 4 \\
+x_5 &amp;= 5
+\end{align}\)</span></p>
+<p>Untuk mempermudah proses perhitungan, koefisien setiap variabel dan konstanta pada ruas kanan dituliskan ke dalam bentuk matriks augmented sebagai berikut:</p>
 <p><span class="math notranslate nohighlight">\(
 \left[
 \begin{array}{ccccc|c}
-1&amp;1&amp;1&amp;1&amp;1&amp;15\\
-2&amp;-1&amp;1&amp;1&amp;-1&amp;8\\
-1&amp;2&amp;-1&amp;1&amp;1&amp;12\\
-3&amp;1&amp;1&amp;-1&amp;1&amp;14\\
-1&amp;-1&amp;2&amp;1&amp;2&amp;13
-\end{array}
-\right]
-\)</span></p>
-<p>Langkah 2: Hilangkan Elemen di Bawah Pivot Pertama
-Operasi baris:</p>
-<p><span class="math notranslate nohighlight">\(
-\begin{aligned}
-R_2 &amp;\leftarrow R_2 - 2R_1 \\
-R_3 &amp;\leftarrow R_3 - R_1 \\
-R_4 &amp;\leftarrow R_4 - 3R_1 \\
-R_5 &amp;\leftarrow R_5 - R_1
-\end{aligned}
-\)</span></p>
-<p>Hasil:
-<span class="math notranslate nohighlight">\(
-\left[
-\begin{array}{ccccc|c}
-1&amp;1&amp;1&amp;1&amp;1&amp;15\\
-0&amp;-3&amp;-1&amp;-1&amp;-3&amp;-22\\
-0&amp;1&amp;-2&amp;0&amp;0&amp;-3\\
-0&amp;-2&amp;-2&amp;-4&amp;-2&amp;-31\\
-0&amp;-2&amp;1&amp;0&amp;1&amp;-2
-\end{array}
-\right]
-\)</span></p>
-<p>Langkah 3: Tukar Baris Agar Pivot Kedua Bernilai 1</p>
-<p><span class="math notranslate nohighlight">\(R_2 \leftrightarrow R_3\)</span></p>
-<p>Hasil :</p>
-<p><span class="math notranslate nohighlight">\(
-\left[
-\begin{array}{ccccc|c}
-1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 15 \\
-0 &amp; 1 &amp; -2 &amp; 0 &amp; 0 &amp; -3 \\
-0 &amp; -3 &amp; -1 &amp; -1 &amp; -3 &amp; -22 \\
-0 &amp; -2 &amp; -2 &amp; -4 &amp; -2 &amp; -31 \\
-0 &amp; -2 &amp; 1 &amp; 0 &amp; 1 &amp; -2
-\end{array}
-\right]
-\)</span></p>
-<p>Langkah 4: Hilangkan Elemen di Bawah Pivot Kedua</p>
-<p><span class="math notranslate nohighlight">\(
-\begin{aligned}
-R_3 &amp;\leftarrow R_3 + 3R_2 \\
-R_4 &amp;\leftarrow R_4 + 2R_2 \\
-R_5 &amp;\leftarrow R_5 + 2R_2
-\end{aligned}
-\)</span></p>
-<p>Hasil :</p>
-<p><span class="math notranslate nohighlight">\(
-\left[
-\begin{array}{ccccc|c}
-1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 15 \\
-0 &amp; 1 &amp; -2 &amp; 0 &amp; 0 &amp; -3 \\
-0 &amp; 0 &amp; -7 &amp; -1 &amp; -3 &amp; -31 \\
-0 &amp; 0 &amp; -6 &amp; -4 &amp; -2 &amp; -37 \\
-0 &amp; 0 &amp; -3 &amp; 0 &amp; 1 &amp; -8
-\end{array}
-\right]
-\)</span></p>
-<p>Langkah 5: Bentuk Pivot Ketiga</p>
-<p><span class="math notranslate nohighlight">\(
-R_3 \leftarrow -\frac{1}{7}R_3
-\)</span></p>
-<p><span class="math notranslate nohighlight">\(
-\left[
-\begin{array}{ccccc|c}
-1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 15 \\
-0 &amp; 1 &amp; -2 &amp; 0 &amp; 0 &amp; -3 \\
-0 &amp; 0 &amp; 1 &amp; \frac{1}{7} &amp; \frac{3}{7} &amp; \frac{31}{7} \\
-0 &amp; 0 &amp; -6 &amp; -4 &amp; -2 &amp; -37 \\
-0 &amp; 0 &amp; -3 &amp; 0 &amp; 1 &amp; -8
-\end{array}
-\right]
-\)</span></p>
-<p>Langkah 6: Hilangkan Elemen di Bawah Pivot Ketiga</p>
-<p><span class="math notranslate nohighlight">\(
-\begin{aligned}
-R_4 &amp;\leftarrow R_4 + 6R_3 \\
-R_5 &amp;\leftarrow R_5 + 3R_3
-\end{aligned}
-\)</span></p>
-<p>hasillnya :</p>
-<p><span class="math notranslate nohighlight">\(
-\left[
-\begin{array}{ccccc|c}
-1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 15 \\
-0 &amp; 1 &amp; -2 &amp; 0 &amp; 0 &amp; -3 \\
-0 &amp; 0 &amp; 1 &amp; \frac{1}{7} &amp; \frac{3}{7} &amp; \frac{31}{7} \\
-0 &amp; 0 &amp; 0 &amp; -\frac{22}{7} &amp; \frac{4}{7} &amp; -\frac{73}{7} \\
-0 &amp; 0 &amp; 0 &amp; \frac{3}{7} &amp; \frac{16}{7} &amp; \frac{37}{7}
-\end{array}
-\right]
-\)</span></p>
-<p>Langkah 7: Lanjutkan Hingga Bentuk Eselon
-Setelah eliminasi selesai diperoleh:</p>
-<p><span class="math notranslate nohighlight">\(
-\left[
-\begin{array}{ccccc|c}
-1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 3 \\
-0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 4 \\
-0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 2 \\
-0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 1 \\
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\
+0 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 2 \\
+0 &amp; 0 &amp; 1 &amp; 1 &amp; 1 &amp; 3 \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 1 &amp; 4 \\
 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 5
 \end{array}
 \right]
 \)</span></p>
-<p>Solusi
-<span class="math notranslate nohighlight">\(x=3, y=4, z=2, w=1, v=5\)</span></p>
+<p>Matriks augmented tersebut akan menjadi dasar dalam penerapan metode Eliminasi Gaussian. Dengan melakukan serangkaian Operasi Baris Elementer, bentuk matriks dapat disederhanakan hingga solusi untuk setiap variabel diperoleh secara sistematis dan efisien.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="metode-gaussjordan">
-<h1>2. Metode Gauss–Jordan<a class="headerlink" href="#metode-gaussjordan" title="Link to this heading">#</a></h1>
-<p>Dari bentuk eselon:</p>
-<p><span class="math notranslate nohighlight">\(
-\left[
-\begin{array}{ccccc|c}
-1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 3 \\
-0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 4 \\
-0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 2 \\
-0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 1 \\
-0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 5
-\end{array}
-\right]
-\)</span></p>
-<p>Eliminasi elemen di atas pivot kelima:</p>
-<p><span class="math notranslate nohighlight">\(
-\begin{aligned}
-R_4 &amp;\leftarrow R_4 + \frac{2}{11}R_5 \\
-R_3 &amp;\leftarrow R_3 - \frac{3}{7}R_5 \\
-R_1 &amp;\leftarrow R_1 - R_5
-\end{aligned}
-\)</span></p>
-<p>Lanjutkan hingga seluruh elemen di atas pivot menjadi nol.
-Hasil akhirnya:</p>
-<p><span class="math notranslate nohighlight">\(
-\left[
-\begin{array}{ccccc|c}
-1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 3 \\
-0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 4 \\
-0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 2 \\
-0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 1 \\
-0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 5
-\end{array}
-\right]
-\)</span></p>
-<p>maka :
-<span class="math notranslate nohighlight">\((x,y,z,w,v)=(3,4,2,1,5)\)</span></p>
+<section class="tex2jax_ignore mathjax_ignore" id="proses-transformasi-matriks-dengan-operasi-baris-elementer-obe">
+<h1>Proses Transformasi Matriks dengan Operasi Baris Elementer (OBE)<a class="headerlink" href="#proses-transformasi-matriks-dengan-operasi-baris-elementer-obe" title="Link to this heading">#</a></h1>
+<p>Tujuan dari proses ini adalah mengubah matriks augmented menjadi bentuk yang lebih sederhana sehingga nilai setiap variabel dapat ditentukan dengan mudah. Metode yang digunakan adalah Operasi Baris Elementer (OBE) secara bertahap hingga diperoleh matriks identitas pada bagian kiri.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="metode-matriks-invers">
-<h1>3. Metode Matriks Invers<a class="headerlink" href="#metode-matriks-invers" title="Link to this heading">#</a></h1>
-<p>Tuliskan :</p>
-<p><span class="math notranslate nohighlight">\(
-AX = B
-\)</span></p>
-<p>dengan</p>
-<p><span class="math notranslate nohighlight">\(
-A=
-\begin{bmatrix}
-1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\
-2 &amp; -1 &amp; 1 &amp; 1 &amp; -1 \\
-1 &amp; 2 &amp; -1 &amp; 1 &amp; 1 \\
-3 &amp; 1 &amp; 1 &amp; -1 &amp; 1 \\
-1 &amp; -1 &amp; 2 &amp; 1 &amp; 2
-\end{bmatrix}
-\)</span></p>
-<p><span class="math notranslate nohighlight">\(
-X=
-\begin{bmatrix}
-x\\
-y\\
-z\\
-w\\
-v
-\end{bmatrix}
-\)</span></p>
-<p><span class="math notranslate nohighlight">\(
-B=
-\begin{bmatrix}
-15\\
-8\\
-12\\
-14\\
-13
-\end{bmatrix}
-\)</span></p>
-<p>Gunakan rumus :</p>
-<p><span class="math notranslate nohighlight">\(
-X = A^{-1}B
-\)</span></p>
-<p>Setelah invers matriks dihitung:</p>
-<p><span class="math notranslate nohighlight">\(
-A^{-1}=
-\left[
-\cdots
-\right]
-\)</span></p>
-<p>(dapat dihitung menggunakan Gauss–Jordan).
-Kemudian:</p>
-<p><span class="math notranslate nohighlight">\(
-X = A^{-1}B =
-\begin{bmatrix}
-3\\
-4\\
-2\\
-1\\
-5
-\end{bmatrix}
-\)</span></p>
-<p>Sehingga :</p>
-<p><span class="math notranslate nohighlight">\(x=3,y=4,z=2,w=1,v=5\)</span></p>
+<section class="tex2jax_ignore mathjax_ignore" id="tahap-1-menentukan-pivot-pada-kolom-pertama">
+<h1>Tahap 1: Menentukan Pivot pada Kolom Pertama<a class="headerlink" href="#tahap-1-menentukan-pivot-pada-kolom-pertama" title="Link to this heading">#</a></h1>
+<p>Langkah pertama adalah memastikan bahwa elemen pertama pada baris pertama dapat digunakan sebagai pivot utama. Pivot ini akan menjadi acuan untuk menghilangkan elemen-elemen lain yang berada di bawahnya pada kolom yang sama.</p>
+<p>Pada tahap ini, kondisi matriks sudah memungkinkan proses dilanjutkan tanpa perlu pertukaran baris.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="metode-cramer">
-<h1>4.Metode Cramer<a class="headerlink" href="#metode-cramer" title="Link to this heading">#</a></h1>
-<p>Hitung determinan matriks koefisien:</p>
+<section class="tex2jax_ignore mathjax_ignore" id="tahap-2-menghilangkan-elemen-pada-kolom-kelima">
+<h1>Tahap 2: Menghilangkan Elemen pada Kolom Kelima<a class="headerlink" href="#tahap-2-menghilangkan-elemen-pada-kolom-kelima" title="Link to this heading">#</a></h1>
+<p>Setelah kolom pertama hingga keempat berada pada posisi yang sesuai, langkah berikutnya adalah menghilangkan nilai yang berada di atas elemen pivot pada kolom kelima.</p>
+<p>Operasi yang digunakan:</p>
 <p><span class="math notranslate nohighlight">\(
-D = \det(A)
+B_4 \leftarrow B_4 - 4B_5
 \)</span></p>
-<p>Kemudian bentuk:</p>
+<p>Melalui operasi ini, elemen pada kolom kelima selain pivot akan berubah menjadi nol sehingga bentuk matriks semakin mendekati matriks identitas.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="tahap-3-menghilangkan-elemen-pada-kolom-keempat">
+<h1>Tahap 3: Menghilangkan Elemen pada Kolom Keempat<a class="headerlink" href="#tahap-3-menghilangkan-elemen-pada-kolom-keempat" title="Link to this heading">#</a></h1>
+<p>Berikutnya dilakukan eliminasi pada kolom keempat. Tujuannya adalah menjadikan seluruh elemen selain pivot pada kolom tersebut bernilai nol.</p>
+<p>Operasi yang dilakukan:</p>
+<p><span class="math notranslate nohighlight">\(B_3 \leftarrow B_3 - B_4\)</span></p>
+<p>Dengan langkah ini, bagian kiri matriks berubah menjadi matriks identitas, yang menandakan bahwa proses eliminasi telah selesai.
+Menentukan Himpunan Penyelesaian</p>
+<p>Hasilnya, kolom keempat hanya memiliki satu elemen bernilai satu sebagai pivot, sedangkan elemen lainnya menjadi nol.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="tahap-4-menghilangkan-elemen-pada-kolom-ketiga">
+<h1>Tahap 4: Menghilangkan Elemen pada Kolom Ketiga<a class="headerlink" href="#tahap-4-menghilangkan-elemen-pada-kolom-ketiga" title="Link to this heading">#</a></h1>
+<p>Proses yang sama diterapkan pada kolom ketiga agar hanya tersisa satu pivot.
+Operasi yang digunakan:</p>
 <p><span class="math notranslate nohighlight">\(
-D_x,\; D_y,\; D_z,\; D_w,\; D_v
+B_2 \leftarrow B_2 - 4B_3
 \)</span></p>
-<p>dengan mengganti kolom yang bersesuaian menggunakan vektor konstanta.</p>
-<p>Rumus:
-<span class="math notranslate nohighlight">\(
-\begin{aligned}
-x &amp;= \frac{D_x}{D}, \\[6pt]
-y &amp;= \frac{D_y}{D}, \\[6pt]
-z &amp;= \frac{D_z}{D}, \\[6pt]
-w &amp;= \frac{D_w}{D}, \\[6pt]
-v &amp;= \frac{D_v}{D}.
-\end{aligned}
-\)</span></p>
-<p>Hasil perhitungan:</p>
+<p>Setelah operasi ini, kolom ketiga telah memenuhi syarat matriks identitas.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="tahap-5-menyelesaikan-kolom-kedua">
+<h1>Tahap 5: Menyelesaikan Kolom Kedua<a class="headerlink" href="#tahap-5-menyelesaikan-kolom-kedua" title="Link to this heading">#</a></h1>
+<p>Tahap terakhir adalah membersihkan kolom kedua sehingga seluruh elemen di atas dan di bawah pivot menjadi nol.
+Operasi yang dilakukan:</p>
 <p><span class="math notranslate nohighlight">\(
-D = 44
+B_1 \leftarrow B_1 - 4B_2
 \)</span></p>
+<p>Dengan langkah ini, bagian kiri matriks berubah menjadi matriks identitas, yang menandakan bahwa proses eliminasi telah selesai.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="menentukan-himpunan-penyelesaian">
+<h1>Menentukan Himpunan Penyelesaian<a class="headerlink" href="#menentukan-himpunan-penyelesaian" title="Link to this heading">#</a></h1>
+<p>Karena matriks telah berhasil diubah menjadi matriks identitas, nilai setiap variabel dapat langsung dibaca dari kolom terakhir matriks.
+Diperoleh:</p>
 <p><span class="math notranslate nohighlight">\(
-D_x = 132,\quad
-D_y = 176,\quad
-D_z = 88,\quad
-D_w = 44,\quad
-D_v = 220
+x_1 = -1
 \)</span></p>
-<p>sehingga :</p>
+<p>$
+x_2 = 1</p>
+<p>x_3 = -1</p>
+<p>x_4 = -1</p>
+<p>x_5 = 3
+$</p>
+<p>Sehingga himpunan penyelesaiannya adalah</p>
 <p><span class="math notranslate nohighlight">\(
-\begin{aligned}
-x &amp;= \frac{132}{44} = 3, \\[6pt]
-y &amp;= \frac{176}{44} = 4, \\[6pt]
-z &amp;= \frac{88}{44} = 2, \\[6pt]
-w &amp;= \frac{44}{44} = 1, \\[6pt]
-v &amp;= \frac{220}{44} = 5.
-\end{aligned}
+(x_1,x_2,x_3,x_4,x_5)=(-1,\,1,\,-1,\,-1,\,3)
 \)</span></p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="validasi-kode-program-menggunakan-python-numpy">
-<h1>Validasi Kode Program Menggunakan Python (NumPy)<a class="headerlink" href="#validasi-kode-program-menggunakan-python-numpy" title="Link to this heading">#</a></h1>
-<p>Validasi ini bertujuan untuk memastikan bahwa solusi yang diperoleh secara manual sudah benar dan konsisten</p>
+<section class="tex2jax_ignore mathjax_ignore" id="validasi-logika-menggunakan-kode-python-numpy">
+<h1>Validasi Logika Menggunakan Kode Python (NumPy)<a class="headerlink" href="#validasi-logika-menggunakan-kode-python-numpy" title="Link to this heading">#</a></h1>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="c1"># Matriks koefisien</span>
 <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
 <span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
 
-<span class="c1"># Matriks konstanta</span>
-<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<span class="c1"># Vektor konstanta</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="mi">3</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">3</span><span class="p">,</span>
+    <span class="o">-</span><span class="mi">2</span><span class="p">,</span>
+    <span class="mi">11</span><span class="p">,</span>
+    <span class="mi">3</span>
+<span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
 
 <span class="c1"># Menyelesaikan SPL</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Solusi SPL:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x =&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;y =&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;z =&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;w =&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;v =&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x1 = </span><span class="si">{</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x2 = </span><span class="si">{</span><span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x3 = </span><span class="si">{</span><span class="n">X</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x4 = </span><span class="si">{</span><span class="n">X</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x5 = </span><span class="si">{</span><span class="n">X</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Link collab :
-<a class="reference external" href="https://colab.research.google.com/drive/17TedJMeiGrQSLCl7ee1k3r1ZPX2Tk9YJ?usp=sharing">https://colab.research.google.com/drive/17TedJMeiGrQSLCl7ee1k3r1ZPX2Tk9YJ?usp=sharing</a></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="link-collabnya">
+<h1>Link collabnya :<a class="headerlink" href="#link-collabnya" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://colab.research.google.com/drive/1aPa7p_DU1dP17n4NIulXhvZOGAD20dKm?usp=sharing">https://colab.research.google.com/drive/1aPa7p_DU1dP17n4NIulXhvZOGAD20dKm?usp=sharing</a></p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -918,20 +741,20 @@ v &amp;= \frac{220}{44} = 5.
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="materi1.html"
+       href="materi2.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Materi 1 : Pengantar Materi KAL</p>
+        <p class="prev-next-title">Materi 2 : Persamaan linear</p>
       </div>
     </a>
     <a class="right-next"
-       href="materi3.html"
+       href="materi4.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Materi 3 : eliminasi gaussion</p>
+        <p class="prev-next-title">Materi 4: Konsep Dasar Teori Sistem Persamaan Linear</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -953,12 +776,16 @@ v &amp;= \frac{220}{44} = 5.
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Materi 2 : Persamaan linear</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-eliminasi-gauss">1. Metode Eliminasi gauss</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-gaussjordan">2. Metode Gauss–Jordan</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-matriks-invers">3. Metode Matriks Invers</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-cramer">4.Metode Cramer</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#validasi-kode-program-menggunakan-python-numpy">Validasi Kode Program Menggunakan Python (NumPy)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Materi 3 : eliminasi gaussion</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-transformasi-matriks-dengan-operasi-baris-elementer-obe">Proses Transformasi Matriks dengan Operasi Baris Elementer (OBE)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-1-menentukan-pivot-pada-kolom-pertama">Tahap 1: Menentukan Pivot pada Kolom Pertama</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-2-menghilangkan-elemen-pada-kolom-kelima">Tahap 2: Menghilangkan Elemen pada Kolom Kelima</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-3-menghilangkan-elemen-pada-kolom-keempat">Tahap 3: Menghilangkan Elemen pada Kolom Keempat</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-4-menghilangkan-elemen-pada-kolom-ketiga">Tahap 4: Menghilangkan Elemen pada Kolom Ketiga</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-5-menyelesaikan-kolom-kedua">Tahap 5: Menyelesaikan Kolom Kedua</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-himpunan-penyelesaian">Menentukan Himpunan Penyelesaian</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#validasi-logika-menggunakan-kode-python-numpy">Validasi Logika Menggunakan Kode Python (NumPy)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#link-collabnya">Link collabnya :</a></li>
 </ul>
 
   </nav></div>

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Materi 2 : Persamaan linear &#8212; My sample book</title>
+    <title>Materi 7: Transformasi Matriks dan Implementasinya pada Vektor 2D &#8212; My sample book</title>
   
   
   
@@ -62,11 +62,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'materi2';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'materi7';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Materi 3 : eliminasi gaussion" href="materi3.html" />
-    <link rel="prev" title="Materi 1 : Pengantar Materi KAL" href="materi1.html" />
+    <link rel="next" title="Tugas Eliminasi Gauss" href="Tugas%20Eliminasi.html" />
+    <link rel="prev" title="Materi 6 : Eigen Value dan Eigen Vektor dengan Dekomposi QR" href="materi6.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -178,7 +178,7 @@
 
 
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Materi 2 : Persamaan linear</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materi2.html">Materi 2 : Persamaan linear</a></li>
 
 
 
@@ -260,7 +260,7 @@
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="materi7.html">Materi 7: Transformasi Matriks dan Implementasinya pada Vektor 2D</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Materi 7: Transformasi Matriks dan Implementasinya pada Vektor 2D</a></li>
 
 
 
@@ -443,7 +443,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fmateri2.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fmateri7.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -473,7 +473,7 @@
       
       
       
-      <li><a href="_sources/materi2.md" target="_blank"
+      <li><a href="_sources/materi7.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -549,7 +549,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Materi 2 : Persamaan linear</h1>
+    <h1>Materi 7: Transformasi Matriks dan Implementasinya pada Vektor 2D</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -559,12 +559,41 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Materi 2 : Persamaan linear</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-eliminasi-gauss">1. Metode Eliminasi gauss</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-gaussjordan">2. Metode Gauss–Jordan</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-matriks-invers">3. Metode Matriks Invers</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-cramer">4.Metode Cramer</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#validasi-kode-program-menggunakan-python-numpy">Validasi Kode Program Menggunakan Python (NumPy)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Materi 7: Transformasi Matriks dan Implementasinya pada Vektor 2D</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#f-transformasi-matriks-dalam-implementasi-mesin-vektor-2d">F. Transformasi Matriks dalam Implementasi Mesin Vektor 2D</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#konsep-dasar-transformasi-matriks">1. Konsep Dasar Transformasi Matriks</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#refleksi-terhadap-sumbu-y">2. Refleksi terhadap Sumbu Y</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pembuktian-aljabar-linear-pada-refleksi-sumbu-y">3. Pembuktian Aljabar Linear pada Refleksi Sumbu Y</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#r-yv-begin-bmatrix-1-0-0-1-end-bmatrix-begin-bmatrix-x-y-end-bmatrix">$
+R_yv=
+\begin{bmatrix}
+-1 &amp; 0\
+0 &amp; 1
+\end{bmatrix}
+\begin{bmatrix}
+x\
+y
+\end{bmatrix}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-perhitungan-pada-satu-titik">4. Contoh Perhitungan pada Satu Titik</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#r-yp-begin-bmatrix-1-0-0-1-end-bmatrix-begin-bmatrix-3-5-end-bmatrix">$
+R_yP=
+\begin{bmatrix}
+-1 &amp; 0\
+0 &amp; 1
+\end{bmatrix}
+\begin{bmatrix}
+3\
+5
+\end{bmatrix}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-simultan-pada-bentuk-geometri">5. Implementasi Simultan pada Bentuk Geometri</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-karakteristik-matriks-refleksi">6. Analisis Karakteristik Matriks Refleksi</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-determinan-bernilai-1">a. Determinan Bernilai -1</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#b-panjang-vektor-tetap">b. Panjang Vektor Tetap</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#c-bentuk-objek-tidak-berubah">c. Bentuk Objek Tidak Berubah</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cara-menjalankan-aplikasi-mesin-vektor-2d">cara Menjalankan Aplikasi Mesin Vektor 2D</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-sistem">Deskripsi Sistem</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kebutuhan-lingkungan-eksekusi">Kebutuhan Lingkungan Eksekusi</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#instalasi-dependensi">Instalasi Dependensi</a></li>
 </ul>
 
             </nav>
@@ -577,314 +606,181 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="materi-2-persamaan-linear">
-<h1>Materi 2 : Persamaan linear<a class="headerlink" href="#materi-2-persamaan-linear" title="Link to this heading">#</a></h1>
-<p>penyelesaian sistem dengan 5 persamaan dan 5 variabel menggunakan beberapa metode yang berbeda.
-Contoh sistem persamaan linear 5×5:</p>
-<p><span class="math notranslate nohighlight">\(
-\begin{cases}
-x + y + z + w + v = 15 \\
-2x - y + z + w - v = 8 \\
-x + 2y - z + w + v = 12 \\
-3x + y + z - w + v = 14 \\
-x - y + 2z + w + 2v = 13
-\end{cases}
-\)</span></p>
+  <section class="tex2jax_ignore mathjax_ignore" id="materi-7-transformasi-matriks-dan-implementasinya-pada-vektor-2d">
+<h1>Materi 7: Transformasi Matriks dan Implementasinya pada Vektor 2D<a class="headerlink" href="#materi-7-transformasi-matriks-dan-implementasinya-pada-vektor-2d" title="Link to this heading">#</a></h1>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="metode-eliminasi-gauss">
-<h1>1. Metode Eliminasi gauss<a class="headerlink" href="#metode-eliminasi-gauss" title="Link to this heading">#</a></h1>
-<p>Langkah 1: Bentuk Matriks Augmented</p>
+<section class="tex2jax_ignore mathjax_ignore" id="f-transformasi-matriks-dalam-implementasi-mesin-vektor-2d">
+<h1>F. Transformasi Matriks dalam Implementasi Mesin Vektor 2D<a class="headerlink" href="#f-transformasi-matriks-dalam-implementasi-mesin-vektor-2d" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="konsep-dasar-transformasi-matriks">
+<h1>1. Konsep Dasar Transformasi Matriks<a class="headerlink" href="#konsep-dasar-transformasi-matriks" title="Link to this heading">#</a></h1>
+<p>Transformasi matriks adalah metode untuk mengubah posisi atau bentuk suatu vektor dengan menggunakan operasi matriks. Dalam grafika komputer, transformasi digunakan untuk memindahkan, memutar, memperbesar, atau mencerminkan objek.</p>
+<p>Bentuk umum transformasi dapat dituliskan sebagai:</p>
 <p><span class="math notranslate nohighlight">\(
-\left[
-\begin{array}{ccccc|c}
-1&amp;1&amp;1&amp;1&amp;1&amp;15\\
-2&amp;-1&amp;1&amp;1&amp;-1&amp;8\\
-1&amp;2&amp;-1&amp;1&amp;1&amp;12\\
-3&amp;1&amp;1&amp;-1&amp;1&amp;14\\
-1&amp;-1&amp;2&amp;1&amp;2&amp;13
-\end{array}
-\right]
+y = Ax
 \)</span></p>
-<p>Langkah 2: Hilangkan Elemen di Bawah Pivot Pertama
-Operasi baris:</p>
-<p><span class="math notranslate nohighlight">\(
-\begin{aligned}
-R_2 &amp;\leftarrow R_2 - 2R_1 \\
-R_3 &amp;\leftarrow R_3 - R_1 \\
-R_4 &amp;\leftarrow R_4 - 3R_1 \\
-R_5 &amp;\leftarrow R_5 - R_1
-\end{aligned}
-\)</span></p>
-<p>Hasil:
+<p>dengan:
 <span class="math notranslate nohighlight">\(
-\left[
-\begin{array}{ccccc|c}
-1&amp;1&amp;1&amp;1&amp;1&amp;15\\
-0&amp;-3&amp;-1&amp;-1&amp;-3&amp;-22\\
-0&amp;1&amp;-2&amp;0&amp;0&amp;-3\\
-0&amp;-2&amp;-2&amp;-4&amp;-2&amp;-31\\
-0&amp;-2&amp;1&amp;0&amp;1&amp;-2
-\end{array}
-\right]
-\)</span></p>
-<p>Langkah 3: Tukar Baris Agar Pivot Kedua Bernilai 1</p>
-<p><span class="math notranslate nohighlight">\(R_2 \leftrightarrow R_3\)</span></p>
-<p>Hasil :</p>
-<p><span class="math notranslate nohighlight">\(
-\left[
-\begin{array}{ccccc|c}
-1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 15 \\
-0 &amp; 1 &amp; -2 &amp; 0 &amp; 0 &amp; -3 \\
-0 &amp; -3 &amp; -1 &amp; -1 &amp; -3 &amp; -22 \\
-0 &amp; -2 &amp; -2 &amp; -4 &amp; -2 &amp; -31 \\
-0 &amp; -2 &amp; 1 &amp; 0 &amp; 1 &amp; -2
-\end{array}
-\right]
-\)</span></p>
-<p>Langkah 4: Hilangkan Elemen di Bawah Pivot Kedua</p>
-<p><span class="math notranslate nohighlight">\(
-\begin{aligned}
-R_3 &amp;\leftarrow R_3 + 3R_2 \\
-R_4 &amp;\leftarrow R_4 + 2R_2 \\
-R_5 &amp;\leftarrow R_5 + 2R_2
-\end{aligned}
-\)</span></p>
-<p>Hasil :</p>
-<p><span class="math notranslate nohighlight">\(
-\left[
-\begin{array}{ccccc|c}
-1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 15 \\
-0 &amp; 1 &amp; -2 &amp; 0 &amp; 0 &amp; -3 \\
-0 &amp; 0 &amp; -7 &amp; -1 &amp; -3 &amp; -31 \\
-0 &amp; 0 &amp; -6 &amp; -4 &amp; -2 &amp; -37 \\
-0 &amp; 0 &amp; -3 &amp; 0 &amp; 1 &amp; -8
-\end{array}
-\right]
-\)</span></p>
-<p>Langkah 5: Bentuk Pivot Ketiga</p>
-<p><span class="math notranslate nohighlight">\(
-R_3 \leftarrow -\frac{1}{7}R_3
-\)</span></p>
-<p><span class="math notranslate nohighlight">\(
-\left[
-\begin{array}{ccccc|c}
-1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 15 \\
-0 &amp; 1 &amp; -2 &amp; 0 &amp; 0 &amp; -3 \\
-0 &amp; 0 &amp; 1 &amp; \frac{1}{7} &amp; \frac{3}{7} &amp; \frac{31}{7} \\
-0 &amp; 0 &amp; -6 &amp; -4 &amp; -2 &amp; -37 \\
-0 &amp; 0 &amp; -3 &amp; 0 &amp; 1 &amp; -8
-\end{array}
-\right]
-\)</span></p>
-<p>Langkah 6: Hilangkan Elemen di Bawah Pivot Ketiga</p>
-<p><span class="math notranslate nohighlight">\(
-\begin{aligned}
-R_4 &amp;\leftarrow R_4 + 6R_3 \\
-R_5 &amp;\leftarrow R_5 + 3R_3
-\end{aligned}
-\)</span></p>
-<p>hasillnya :</p>
-<p><span class="math notranslate nohighlight">\(
-\left[
-\begin{array}{ccccc|c}
-1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 15 \\
-0 &amp; 1 &amp; -2 &amp; 0 &amp; 0 &amp; -3 \\
-0 &amp; 0 &amp; 1 &amp; \frac{1}{7} &amp; \frac{3}{7} &amp; \frac{31}{7} \\
-0 &amp; 0 &amp; 0 &amp; -\frac{22}{7} &amp; \frac{4}{7} &amp; -\frac{73}{7} \\
-0 &amp; 0 &amp; 0 &amp; \frac{3}{7} &amp; \frac{16}{7} &amp; \frac{37}{7}
-\end{array}
-\right]
-\)</span></p>
-<p>Langkah 7: Lanjutkan Hingga Bentuk Eselon
-Setelah eliminasi selesai diperoleh:</p>
-<p><span class="math notranslate nohighlight">\(
-\left[
-\begin{array}{ccccc|c}
-1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 3 \\
-0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 4 \\
-0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 2 \\
-0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 1 \\
-0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 5
-\end{array}
-\right]
-\)</span></p>
-<p>Solusi
-<span class="math notranslate nohighlight">\(x=3, y=4, z=2, w=1, v=5\)</span></p>
+\begin{itemize}
+    \item A adalah matriks transformasi,
+    \item x adalah vektor awal,
+    \item y adalah hasil transformasi.
+\end{itemize}\)</span></p>
+<p>Transformasi matriks memungkinkan perubahan koordinat dilakukan secara sistematis dan efisien.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="metode-gaussjordan">
-<h1>2. Metode Gauss–Jordan<a class="headerlink" href="#metode-gaussjordan" title="Link to this heading">#</a></h1>
-<p>Dari bentuk eselon:</p>
+<section class="tex2jax_ignore mathjax_ignore" id="refleksi-terhadap-sumbu-y">
+<h1>2. Refleksi terhadap Sumbu Y<a class="headerlink" href="#refleksi-terhadap-sumbu-y" title="Link to this heading">#</a></h1>
+<p>Refleksi terhadap sumbu Y merupakan proses pencerminan suatu titik terhadap garis sumbu Y. Pada transformasi ini, nilai koordinat <span class="math notranslate nohighlight">\(x\)</span> berubah tanda, sedangkan koordinat <span class="math notranslate nohighlight">\(y\)</span> tetap.</p>
+<p>Matriks refleksi terhadap sumbu Y adalah:</p>
 <p><span class="math notranslate nohighlight">\(
-\left[
-\begin{array}{ccccc|c}
-1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 3 \\
-0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 4 \\
-0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 2 \\
-0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 1 \\
-0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 5
-\end{array}
-\right]
-\)</span></p>
-<p>Eliminasi elemen di atas pivot kelima:</p>
-<p><span class="math notranslate nohighlight">\(
-\begin{aligned}
-R_4 &amp;\leftarrow R_4 + \frac{2}{11}R_5 \\
-R_3 &amp;\leftarrow R_3 - \frac{3}{7}R_5 \\
-R_1 &amp;\leftarrow R_1 - R_5
-\end{aligned}
-\)</span></p>
-<p>Lanjutkan hingga seluruh elemen di atas pivot menjadi nol.
-Hasil akhirnya:</p>
-<p><span class="math notranslate nohighlight">\(
-\left[
-\begin{array}{ccccc|c}
-1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 3 \\
-0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 4 \\
-0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 2 \\
-0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 1 \\
-0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 5
-\end{array}
-\right]
-\)</span></p>
-<p>maka :
-<span class="math notranslate nohighlight">\((x,y,z,w,v)=(3,4,2,1,5)\)</span></p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="metode-matriks-invers">
-<h1>3. Metode Matriks Invers<a class="headerlink" href="#metode-matriks-invers" title="Link to this heading">#</a></h1>
-<p>Tuliskan :</p>
-<p><span class="math notranslate nohighlight">\(
-AX = B
-\)</span></p>
-<p>dengan</p>
-<p><span class="math notranslate nohighlight">\(
-A=
+R_y=
 \begin{bmatrix}
-1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\
-2 &amp; -1 &amp; 1 &amp; 1 &amp; -1 \\
-1 &amp; 2 &amp; -1 &amp; 1 &amp; 1 \\
-3 &amp; 1 &amp; 1 &amp; -1 &amp; 1 \\
-1 &amp; -1 &amp; 2 &amp; 1 &amp; 2
+-1 &amp; 0\\
+0 &amp; 1
 \end{bmatrix}
 \)</span></p>
+<p>Jika suatu titik direpresentasikan sebagai vektor kolom, maka hasil refleksi diperoleh dengan mengalikan matriks refleksi dengan vektor tersebut.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="pembuktian-aljabar-linear-pada-refleksi-sumbu-y">
+<h1>3. Pembuktian Aljabar Linear pada Refleksi Sumbu Y<a class="headerlink" href="#pembuktian-aljabar-linear-pada-refleksi-sumbu-y" title="Link to this heading">#</a></h1>
+<p>Misalkan terdapat titik:</p>
 <p><span class="math notranslate nohighlight">\(
-X=
+v=
 \begin{bmatrix}
 x\\
-y\\
-z\\
-w\\
-v
+y
 \end{bmatrix}
 \)</span></p>
+<p>Kemudian dilakukan transformasi menggunakan matriks refleksi:</p>
 <p><span class="math notranslate nohighlight">\(
-B=
+R_y=
 \begin{bmatrix}
-15\\
-8\\
-12\\
-14\\
-13
+-1 &amp; 0\\
+0 &amp; 1
 \end{bmatrix}
 \)</span></p>
-<p>Gunakan rumus :</p>
+<p>Maka:</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="r-yv-begin-bmatrix-1-0-0-1-end-bmatrix-begin-bmatrix-x-y-end-bmatrix">
+<h1>$
+R_yv=
+\begin{bmatrix}
+-1 &amp; 0\
+0 &amp; 1
+\end{bmatrix}
+\begin{bmatrix}
+x\
+y
+\end{bmatrix}<a class="headerlink" href="#r-yv-begin-bmatrix-1-0-0-1-end-bmatrix-begin-bmatrix-x-y-end-bmatrix" title="Link to this heading">#</a></h1>
+<p>\begin{bmatrix}
+-x\
+y
+\end{bmatrix}
+$</p>
+<p>Hasil tersebut menunjukkan bahwa koordinat <span class="math notranslate nohighlight">\(x\)</span> berubah menjadi <span class="math notranslate nohighlight">\(-x\)</span>, sedangkan koordinat <span class="math notranslate nohighlight">\(y\)</span> tetap. Dengan demikian, titik telah tercermin terhadap sumbu Y.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="contoh-perhitungan-pada-satu-titik">
+<h1>4. Contoh Perhitungan pada Satu Titik<a class="headerlink" href="#contoh-perhitungan-pada-satu-titik" title="Link to this heading">#</a></h1>
+<p>Misalkan terdapat titik:</p>
 <p><span class="math notranslate nohighlight">\(
-X = A^{-1}B
-\)</span></p>
-<p>Setelah invers matriks dihitung:</p>
-<p><span class="math notranslate nohighlight">\(
-A^{-1}=
-\left[
-\cdots
-\right]
-\)</span></p>
-<p>(dapat dihitung menggunakan Gauss–Jordan).
-Kemudian:</p>
-<p><span class="math notranslate nohighlight">\(
-X = A^{-1}B =
+P=
 \begin{bmatrix}
 3\\
-4\\
-2\\
-1\\
 5
 \end{bmatrix}
 \)</span></p>
-<p>Sehingga :</p>
-<p><span class="math notranslate nohighlight">\(x=3,y=4,z=2,w=1,v=5\)</span></p>
+<p>Lakukan refleksi terhadap sumbu Y.
+Perhitungannya:</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="metode-cramer">
-<h1>4.Metode Cramer<a class="headerlink" href="#metode-cramer" title="Link to this heading">#</a></h1>
-<p>Hitung determinan matriks koefisien:</p>
-<p><span class="math notranslate nohighlight">\(
-D = \det(A)
-\)</span></p>
-<p>Kemudian bentuk:</p>
-<p><span class="math notranslate nohighlight">\(
-D_x,\; D_y,\; D_z,\; D_w,\; D_v
-\)</span></p>
-<p>dengan mengganti kolom yang bersesuaian menggunakan vektor konstanta.</p>
-<p>Rumus:
-<span class="math notranslate nohighlight">\(
-\begin{aligned}
-x &amp;= \frac{D_x}{D}, \\[6pt]
-y &amp;= \frac{D_y}{D}, \\[6pt]
-z &amp;= \frac{D_z}{D}, \\[6pt]
-w &amp;= \frac{D_w}{D}, \\[6pt]
-v &amp;= \frac{D_v}{D}.
-\end{aligned}
-\)</span></p>
-<p>Hasil perhitungan:</p>
-<p><span class="math notranslate nohighlight">\(
-D = 44
-\)</span></p>
-<p><span class="math notranslate nohighlight">\(
-D_x = 132,\quad
-D_y = 176,\quad
-D_z = 88,\quad
-D_w = 44,\quad
-D_v = 220
-\)</span></p>
-<p>sehingga :</p>
-<p><span class="math notranslate nohighlight">\(
-\begin{aligned}
-x &amp;= \frac{132}{44} = 3, \\[6pt]
-y &amp;= \frac{176}{44} = 4, \\[6pt]
-z &amp;= \frac{88}{44} = 2, \\[6pt]
-w &amp;= \frac{44}{44} = 1, \\[6pt]
-v &amp;= \frac{220}{44} = 5.
-\end{aligned}
-\)</span></p>
+<section class="tex2jax_ignore mathjax_ignore" id="r-yp-begin-bmatrix-1-0-0-1-end-bmatrix-begin-bmatrix-3-5-end-bmatrix">
+<h1>$
+R_yP=
+\begin{bmatrix}
+-1 &amp; 0\
+0 &amp; 1
+\end{bmatrix}
+\begin{bmatrix}
+3\
+5
+\end{bmatrix}<a class="headerlink" href="#r-yp-begin-bmatrix-1-0-0-1-end-bmatrix-begin-bmatrix-3-5-end-bmatrix" title="Link to this heading">#</a></h1>
+<p>\begin{bmatrix}
+-3\
+5
+\end{bmatrix}
+$</p>
+<p>Jadi, setelah dicerminkan terhadap sumbu Y, titik <span class="math notranslate nohighlight">\((3,5)\)</span> berubah menjadi <span class="math notranslate nohighlight">\((-3,5)\)</span></p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="validasi-kode-program-menggunakan-python-numpy">
-<h1>Validasi Kode Program Menggunakan Python (NumPy)<a class="headerlink" href="#validasi-kode-program-menggunakan-python-numpy" title="Link to this heading">#</a></h1>
-<p>Validasi ini bertujuan untuk memastikan bahwa solusi yang diperoleh secara manual sudah benar dan konsisten</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-
-<span class="c1"># Matriks koefisien</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
-
-<span class="c1"># Matriks konstanta</span>
-<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
-
-<span class="c1"># Menyelesaikan SPL</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Solusi SPL:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x =&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;y =&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;z =&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;w =&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;v =&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+<section class="tex2jax_ignore mathjax_ignore" id="implementasi-simultan-pada-bentuk-geometri">
+<h1>5. Implementasi Simultan pada Bentuk Geometri<a class="headerlink" href="#implementasi-simultan-pada-bentuk-geometri" title="Link to this heading">#</a></h1>
+<p>Dalam grafika komputer, objek biasanya terdiri dari banyak titik yang saling terhubung membentuk suatu bangun. Oleh karena itu, transformasi dilakukan pada seluruh titik penyusun objek.</p>
+<p>Sebagai contoh, sebuah segitiga memiliki titik-titik:</p>
+<p><span class="math notranslate nohighlight">\(
+A(2,1), \quad B(4,3), \quad C(1,4)
+\)</span></p>
+<p>Masing-masing titik direfleksikan terhadap sumbu Y:</p>
+<p><span class="math notranslate nohighlight">\(
+A'(-2,1)
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+B'(-4,3)
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+C'(-1,4)
+\)</span></p>
+<p>Dengan menghubungkan kembali titik-titik hasil refleksi tersebut, diperoleh bentuk segitiga baru yang merupakan bayangan cermin dari segitiga awal.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="analisis-karakteristik-matriks-refleksi">
+<h1>6. Analisis Karakteristik Matriks Refleksi<a class="headerlink" href="#analisis-karakteristik-matriks-refleksi" title="Link to this heading">#</a></h1>
+<p>Beberapa sifat penting dari matriks refleksi adalah sebagai berikut:</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="a-determinan-bernilai-1">
+<h1>a. Determinan Bernilai -1<a class="headerlink" href="#a-determinan-bernilai-1" title="Link to this heading">#</a></h1>
+<p>Determinan matriks refleksi terhadap sumbu Y adalah:</p>
+<p><span class="math notranslate nohighlight">\(
+\det(R_y)=(-1)(1)-0(0)=-1
+\)</span></p>
+<p>Nilai determinan negatif menunjukkan bahwa orientasi objek berubah setelah transformasi dilakukan.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="b-panjang-vektor-tetap">
+<h1>b. Panjang Vektor Tetap<a class="headerlink" href="#b-panjang-vektor-tetap" title="Link to this heading">#</a></h1>
+<p>Refleksi tidak mengubah ukuran atau panjang vektor. Yang berubah hanyalah posisi dan arahnya terhadap sumbu tertentu.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="c-bentuk-objek-tidak-berubah">
+<h1>c. Bentuk Objek Tidak Berubah<a class="headerlink" href="#c-bentuk-objek-tidak-berubah" title="Link to this heading">#</a></h1>
+<p>Walaupun posisi objek berpindah akibat pencerminan, ukuran dan bentuk objek tetap sama. Oleh karena itu, refleksi termasuk transformasi yang mempertahankan bentuk (isometri).</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="cara-menjalankan-aplikasi-mesin-vektor-2d">
+<h1>cara Menjalankan Aplikasi Mesin Vektor 2D<a class="headerlink" href="#cara-menjalankan-aplikasi-mesin-vektor-2d" title="Link to this heading">#</a></h1>
+<p>Bagian ini menjelaskan langkah-langkah penggunaan aplikasi sederhana yang memanfaatkan transformasi matriks untuk memvisualisasikan perubahan posisi objek pada bidang dua dimensi.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="deskripsi-sistem">
+<h1>Deskripsi Sistem<a class="headerlink" href="#deskripsi-sistem" title="Link to this heading">#</a></h1>
+<p>Program dibuat menggunakan bahasa Python dan menampilkan objek grafis pada layar. Pengguna dapat melakukan beberapa operasi transformasi, seperti:</p>
+<p><span class="math notranslate nohighlight">\(\begin{itemize}
+    \item Translasi (pergeseran),
+    \item Rotasi (perputaran),
+    \item Refleksi (pencerminan),
+    \item Skala (perbesaran atau pengecilan).
+\end{itemize}\)</span></p>
+<p>Setiap transformasi dihitung menggunakan operasi matriks sehingga hasilnya sesuai dengan teori aljabar linear.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="kebutuhan-lingkungan-eksekusi">
+<h1>Kebutuhan Lingkungan Eksekusi<a class="headerlink" href="#kebutuhan-lingkungan-eksekusi" title="Link to this heading">#</a></h1>
+<p>Sebelum menjalankan program, pastikan perangkat telah memenuhi kebutuhan berikut:</p>
+<p><span class="math notranslate nohighlight">\(\begin{itemize}
+    \item Python versi 3.8 atau lebih baru.
+    \item Pustaka NumPy untuk perhitungan matriks.
+    \item Pustaka Pygame untuk menampilkan grafis.
+    \item Sistem operasi Windows, Linux, atau macOS.
+\end{itemize}\)</span></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="instalasi-dependensi">
+<h1>Instalasi Dependensi<a class="headerlink" href="#instalasi-dependensi" title="Link to this heading">#</a></h1>
+<p>Untuk memasang pustaka yang diperlukan, jalankan perintah berikut pada terminal:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">numpy</span> <span class="n">pygame</span>
 </pre></div>
 </div>
-<p>Link collab :
-<a class="reference external" href="https://colab.research.google.com/drive/17TedJMeiGrQSLCl7ee1k3r1ZPX2Tk9YJ?usp=sharing">https://colab.research.google.com/drive/17TedJMeiGrQSLCl7ee1k3r1ZPX2Tk9YJ?usp=sharing</a></p>
+<p>Setelah instalasi selesai, program siap dijalankan dan digunakan untuk mempelajari transformasi matriks pada objek dua dimensi secara interaktif.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -918,20 +814,20 @@ v &amp;= \frac{220}{44} = 5.
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="materi1.html"
+       href="materi6.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Materi 1 : Pengantar Materi KAL</p>
+        <p class="prev-next-title">Materi 6 : Eigen Value dan Eigen Vektor dengan Dekomposi QR</p>
       </div>
     </a>
     <a class="right-next"
-       href="materi3.html"
+       href="Tugas%20Eliminasi.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Materi 3 : eliminasi gaussion</p>
+        <p class="prev-next-title">Tugas Eliminasi Gauss</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -953,12 +849,41 @@ v &amp;= \frac{220}{44} = 5.
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Materi 2 : Persamaan linear</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-eliminasi-gauss">1. Metode Eliminasi gauss</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-gaussjordan">2. Metode Gauss–Jordan</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-matriks-invers">3. Metode Matriks Invers</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-cramer">4.Metode Cramer</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#validasi-kode-program-menggunakan-python-numpy">Validasi Kode Program Menggunakan Python (NumPy)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Materi 7: Transformasi Matriks dan Implementasinya pada Vektor 2D</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#f-transformasi-matriks-dalam-implementasi-mesin-vektor-2d">F. Transformasi Matriks dalam Implementasi Mesin Vektor 2D</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#konsep-dasar-transformasi-matriks">1. Konsep Dasar Transformasi Matriks</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#refleksi-terhadap-sumbu-y">2. Refleksi terhadap Sumbu Y</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pembuktian-aljabar-linear-pada-refleksi-sumbu-y">3. Pembuktian Aljabar Linear pada Refleksi Sumbu Y</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#r-yv-begin-bmatrix-1-0-0-1-end-bmatrix-begin-bmatrix-x-y-end-bmatrix">$
+R_yv=
+\begin{bmatrix}
+-1 &amp; 0\
+0 &amp; 1
+\end{bmatrix}
+\begin{bmatrix}
+x\
+y
+\end{bmatrix}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-perhitungan-pada-satu-titik">4. Contoh Perhitungan pada Satu Titik</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#r-yp-begin-bmatrix-1-0-0-1-end-bmatrix-begin-bmatrix-3-5-end-bmatrix">$
+R_yP=
+\begin{bmatrix}
+-1 &amp; 0\
+0 &amp; 1
+\end{bmatrix}
+\begin{bmatrix}
+3\
+5
+\end{bmatrix}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-simultan-pada-bentuk-geometri">5. Implementasi Simultan pada Bentuk Geometri</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-karakteristik-matriks-refleksi">6. Analisis Karakteristik Matriks Refleksi</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-determinan-bernilai-1">a. Determinan Bernilai -1</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#b-panjang-vektor-tetap">b. Panjang Vektor Tetap</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#c-bentuk-objek-tidak-berubah">c. Bentuk Objek Tidak Berubah</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cara-menjalankan-aplikasi-mesin-vektor-2d">cara Menjalankan Aplikasi Mesin Vektor 2D</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-sistem">Deskripsi Sistem</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kebutuhan-lingkungan-eksekusi">Kebutuhan Lingkungan Eksekusi</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#instalasi-dependensi">Instalasi Dependensi</a></li>
 </ul>
 
   </nav></div>

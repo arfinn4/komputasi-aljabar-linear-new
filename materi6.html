@@ -1,0 +1,1387 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Materi 6 : Eigen Value dan Eigen Vektor dengan Dekomposi QR &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'materi6';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Materi 7: Transformasi Matriks dan Implementasinya pada Vektor 2D" href="materi7.html" />
+    <link rel="prev" title="Materi 5: Materi tentang Determinan dan Invers Matriks" href="materi5.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo1.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <img src="_static/logo1.png" class="logo__image only-dark pst-js-only" alt="My sample book - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Profil Saya
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="materi1.html">Materi 1 : Pengantar Materi KAL</a></li>
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="materi2.html">Materi 2 : Persamaan linear</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="materi3.html">Materi 3 : eliminasi gaussion</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="materi4.html">Materi 4: Konsep Dasar Teori Sistem Persamaan Linear</a></li>
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="materi5.html">Materi 5: Materi tentang Determinan dan Invers Matriks</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Materi 6 : Eigen Value dan Eigen Vektor dengan Dekomposi QR</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="materi7.html">Materi 7: Transformasi Matriks dan Implementasinya pada Vektor 2D</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Tugas%20Eliminasi.html">Tugas Eliminasi Gauss</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="tugas%20uts.html">Tugas Ujian Tengah semester</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="tugas%20determinan%20dan%20invers.html">Perhitungan Determinan dan Invers</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Tugas%20Transformasi%20sumbu%20Y%20menggunakan%20Translasi%20dan%20pencerminan.html">Tugas Transformasi sumbu Y menggunakan Translasi dan pencerminan</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="tugas%20terakhir.html">Tugas Singular Value Decomposition (SVD) pada Kompresi Citra</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fmateri6.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/materi6.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Materi 6 : Eigen Value dan Eigen Vektor dengan Dekomposi QR</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Materi 6 : Eigen Value dan Eigen Vektor dengan Dekomposi QR</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eigen-value-dan-eigen-vektor-dengan-dekomposisi-qr-menggunakan-gram-schmidt">Eigen Value dan Eigen Vektor dengan Dekomposisi QR Menggunakan Gram-Schmidt</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#iterasi-1">Iterasi 1</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-1-ambil-kolom-kolom-matriks">Langkah 1 : Ambil Kolom-kolom matriks:</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-2-mencari-q1">Langkah 2: Mencari q1	​</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-1">$
+|a_1|</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sqrt-4-2-2-2">\sqrt{4^2+2^2}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sqrt-20">\sqrt{20}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#q-1">$
+q_1</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#frac-a-1-a-1">\frac{a_1}{|a_1|}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-3-mencari-q2">Langkah 3: Mencari q2	​</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#r-12">$r_{12}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#q-1-ta-2">q_1^Ta_2</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">(0.8944)(1)+(0.4472)(3)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#u-2">$
+u_2</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">$</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#begin-bmatrix-1-3-end-bmatrix">\begin{bmatrix}
+1\
+3
+\end{bmatrix}</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#begin-bmatrix-0-8944-0-4472-end-bmatrix">2.2361
+\begin{bmatrix}
+0.8944\
+0.4472
+\end{bmatrix}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#r-22">$
+r_{22}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sqrt-1-2-2-2">\sqrt{(-1)^2+2^2}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sqrt5">\sqrt5</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#q-2">$
+q_2</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#frac-u-2-r-22">\frac{u_2}{r_{22}}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-4-bentuk-q1-dan-r1">Langkah 4: Bentuk Q1 dan R1</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-5-hitung-a1-r1-q1">Langkah 5: Hitung A1 =R1 Q1</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#iterasi-2">Iterasi 2</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#r-11">$
+r_{11}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sqrt-5-2-1-2">\sqrt{5^2+1^2}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">$
+r_{12}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">q_1^Ta_2</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">(0.9806)(-1)+(0.1961)(2)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">$
+u_2</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-2-r-12-q-1">a_2-r_{12}q_1</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#iterasi-3">Iterasi 3</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-3-r-3q-3">$
+A_3=
+R_3Q_3</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#iterasi-4-10">Iterasi 4–10</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#nilai-eigen">Nilai Eigen</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-eigen-vektor">menentukan Eigen vektor</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#link-collab">link collab :</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="materi-6-eigen-value-dan-eigen-vektor-dengan-dekomposi-qr">
+<h1>Materi 6 : Eigen Value dan Eigen Vektor dengan Dekomposi QR<a class="headerlink" href="#materi-6-eigen-value-dan-eigen-vektor-dengan-dekomposi-qr" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="eigen-value-dan-eigen-vektor-dengan-dekomposisi-qr-menggunakan-gram-schmidt">
+<h1>Eigen Value dan Eigen Vektor dengan Dekomposisi QR Menggunakan Gram-Schmidt<a class="headerlink" href="#eigen-value-dan-eigen-vektor-dengan-dekomposisi-qr-menggunakan-gram-schmidt" title="Link to this heading">#</a></h1>
+<p>Diberikan matriks:</p>
+<p><span class="math notranslate nohighlight">\(
+A_0=
+\begin{bmatrix}
+4 &amp; 1\\
+2 &amp; 3
+\end{bmatrix}
+\)</span></p>
+<p>Metode QR dilakukan dengan langkah:</p>
+<p><span class="math notranslate nohighlight">\(
+A_k = Q_kR_k
+\)</span></p>
+<p>kemudian membentuk matriks baru</p>
+<p><span class="math notranslate nohighlight">\(
+A_{k+1}=R_kQ_k
+\)</span></p>
+<p>Proses diulangi hingga 10 iterasi.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="iterasi-1">
+<h1>Iterasi 1<a class="headerlink" href="#iterasi-1" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="langkah-1-ambil-kolom-kolom-matriks">
+<h1>Langkah 1 : Ambil Kolom-kolom matriks:<a class="headerlink" href="#langkah-1-ambil-kolom-kolom-matriks" title="Link to this heading">#</a></h1>
+<p><span class="math notranslate nohighlight">\(
+a_1=
+\begin{bmatrix}
+4\\
+2
+\end{bmatrix},
+\qquad
+a_2=
+\begin{bmatrix}
+1\\
+3
+\end{bmatrix}
+\)</span></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="langkah-2-mencari-q1">
+<h1>Langkah 2: Mencari q1	​<a class="headerlink" href="#langkah-2-mencari-q1" title="Link to this heading">#</a></h1>
+<p>Norma kolom pertama:</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="a-1">
+<h1>$
+|a_1|<a class="headerlink" href="#a-1" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="sqrt-4-2-2-2">
+<h1>\sqrt{4^2+2^2}<a class="headerlink" href="#sqrt-4-2-2-2" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="sqrt-20">
+<h1>\sqrt{20}<a class="headerlink" href="#sqrt-20" title="Link to this heading">#</a></h1>
+<p>4.4721
+$</p>
+<p>Sehingga</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="q-1">
+<h1>$
+q_1<a class="headerlink" href="#q-1" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="frac-a-1-a-1">
+<h1>\frac{a_1}{|a_1|}<a class="headerlink" href="#frac-a-1-a-1" title="Link to this heading">#</a></h1>
+<p>\begin{bmatrix}
+0.8944\
+0.4472
+\end{bmatrix}
+$</p>
+<p>dan</p>
+<p><span class="math notranslate nohighlight">\(
+r_{11}=4.4721
+\)</span></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="langkah-3-mencari-q2">
+<h1>Langkah 3: Mencari q2	​<a class="headerlink" href="#langkah-3-mencari-q2" title="Link to this heading">#</a></h1>
+<p>Hitung</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="r-12">
+<h1>$r_{12}<a class="headerlink" href="#r-12" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="q-1-ta-2">
+<h1>q_1^Ta_2<a class="headerlink" href="#q-1-ta-2" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>(0.8944)(1)+(0.4472)(3)<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<p>2.2361
+$</p>
+<p>Vektor ortogonal kedua:</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="u-2">
+<h1>$
+u_2<a class="headerlink" href="#u-2" title="Link to this heading">#</a></h1>
+<p>a_2-r_{12}q_1
+$</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id2">
+<h1>$<a class="headerlink" href="#id2" title="Link to this heading">#</a></h1>
+<section id="begin-bmatrix-1-3-end-bmatrix">
+<h2>\begin{bmatrix}
+1\
+3
+\end{bmatrix}<a class="headerlink" href="#begin-bmatrix-1-3-end-bmatrix" title="Link to this heading">#</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="begin-bmatrix-0-8944-0-4472-end-bmatrix">
+<h1>2.2361
+\begin{bmatrix}
+0.8944\
+0.4472
+\end{bmatrix}<a class="headerlink" href="#begin-bmatrix-0-8944-0-4472-end-bmatrix" title="Link to this heading">#</a></h1>
+<p>\begin{bmatrix}
+-1\
+2
+\end{bmatrix}
+$</p>
+<p>Normanya:</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="r-22">
+<h1>$
+r_{22}<a class="headerlink" href="#r-22" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="sqrt-1-2-2-2">
+<h1>\sqrt{(-1)^2+2^2}<a class="headerlink" href="#sqrt-1-2-2-2" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="sqrt5">
+<h1>\sqrt5<a class="headerlink" href="#sqrt5" title="Link to this heading">#</a></h1>
+<p>2.2361
+$</p>
+<p>Sehingga</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="q-2">
+<h1>$
+q_2<a class="headerlink" href="#q-2" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="frac-u-2-r-22">
+<h1>\frac{u_2}{r_{22}}<a class="headerlink" href="#frac-u-2-r-22" title="Link to this heading">#</a></h1>
+<p>\begin{bmatrix}
+-0.4472\
+0.8944
+\end{bmatrix}
+$</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="langkah-4-bentuk-q1-dan-r1">
+<h1>Langkah 4: Bentuk Q1 dan R1<a class="headerlink" href="#langkah-4-bentuk-q1-dan-r1" title="Link to this heading">#</a></h1>
+<p>Matriks QR:</p>
+<p><span class="math notranslate nohighlight">\(
+Q_1=
+\begin{bmatrix}
+0.8944 &amp; -0.4472\\
+0.4472 &amp; 0.8944
+\end{bmatrix}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+R_1=
+\begin{bmatrix}
+4.4721 &amp; 2.2361\\
+0 &amp; 2.2361
+\end{bmatrix}
+\)</span></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="langkah-5-hitung-a1-r1-q1">
+<h1>Langkah 5: Hitung A1 =R1 Q1<a class="headerlink" href="#langkah-5-hitung-a1-r1-q1" title="Link to this heading">#</a></h1>
+<p>Matriks baru:</p>
+<p>$
+A_1=R_1Q_1
+$</p>
+<p>hasilnya :
+<span class="math notranslate nohighlight">\(
+A_1=
+\begin{bmatrix}
+5 &amp; -1\\
+1 &amp; 2
+\end{bmatrix}
+\)</span></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="iterasi-2">
+<h1>Iterasi 2<a class="headerlink" href="#iterasi-2" title="Link to this heading">#</a></h1>
+<p>Gunakan</p>
+<p><span class="math notranslate nohighlight">\(
+A_1=
+\begin{bmatrix}
+5 &amp; -1\\
+1 &amp; 2
+\end{bmatrix}
+\)</span></p>
+<p>Kolom pertama:</p>
+<p><span class="math notranslate nohighlight">\(
+a_1=
+\begin{bmatrix}
+5\\
+1
+\end{bmatrix}
+\)</span></p>
+<p>Norma:</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="r-11">
+<h1>$
+r_{11}<a class="headerlink" href="#r-11" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="sqrt-5-2-1-2">
+<h1>\sqrt{5^2+1^2}<a class="headerlink" href="#sqrt-5-2-1-2" title="Link to this heading">#</a></h1>
+<p>5.0990
+$</p>
+<p><span class="math notranslate nohighlight">\(
+q_1=
+\begin{bmatrix}
+0.9806\\
+0.1961
+\end{bmatrix}
+\)</span></p>
+<p>Hitung</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id3">
+<h1>$
+r_{12}<a class="headerlink" href="#id3" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id4">
+<h1>q_1^Ta_2<a class="headerlink" href="#id4" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id5">
+<h1>(0.9806)(-1)+(0.1961)(2)<a class="headerlink" href="#id5" title="Link to this heading">#</a></h1>
+<p>-0.5883
+$</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id6">
+<h1>$
+u_2<a class="headerlink" href="#id6" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="a-2-r-12-q-1">
+<h1>a_2-r_{12}q_1<a class="headerlink" href="#a-2-r-12-q-1" title="Link to this heading">#</a></h1>
+<p>\begin{bmatrix}
+-0.4231\
+2.1154
+\end{bmatrix}
+$</p>
+<p>norma :</p>
+<p><span class="math notranslate nohighlight">\(
+r_{22}=2.1573
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+q_2=
+\begin{bmatrix}
+-0.1961\\
+0.9806
+\end{bmatrix}
+\)</span></p>
+<p>Sehingga</p>
+<p><span class="math notranslate nohighlight">\(
+Q_2=
+\begin{bmatrix}
+0.9806 &amp; -0.1961\\
+0.1961 &amp; 0.9806
+\end{bmatrix}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+R_2=
+\begin{bmatrix}
+5.0990 &amp; -0.5883\\
+0 &amp; 2.1573
+\end{bmatrix}
+\)</span></p>
+<p>hitung :
+<span class="math notranslate nohighlight">\(
+A_2=R_2Q_2
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+A_2=
+\begin{bmatrix}
+5.3846 &amp; -1.5769\\
+0.4231 &amp; 2.1154
+\end{bmatrix}
+\)</span></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="iterasi-3">
+<h1>Iterasi 3<a class="headerlink" href="#iterasi-3" title="Link to this heading">#</a></h1>
+<p>dari :</p>
+<p><span class="math notranslate nohighlight">\(
+A_2=
+\begin{bmatrix}
+5.3846 &amp; -1.5769 \\
+0.4231 &amp; 2.1154
+\end{bmatrix}
+\)</span></p>
+<p>dengan proses yang sama Diperoleh</p>
+<p><span class="math notranslate nohighlight">\(
+Q_3=
+\begin{bmatrix}
+0.9969 &amp; -0.0784\\
+0.0784 &amp; 0.9969
+\end{bmatrix}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+R_3=
+\begin{bmatrix}
+5.4012 &amp; -1.4069\\
+0 &amp; 2.2328
+\end{bmatrix}
+\)</span></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="a-3-r-3q-3">
+<h1>$
+A_3=
+R_3Q_3<a class="headerlink" href="#a-3-r-3q-3" title="Link to this heading">#</a></h1>
+<p>\begin{bmatrix}
+5.4940 &amp; -1.8258\
+0.1750 &amp; 2.2260
+\end{bmatrix}
+$</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="iterasi-4-10">
+<h1>Iterasi 4–10<a class="headerlink" href="#iterasi-4-10" title="Link to this heading">#</a></h1>
+<p><span class="math notranslate nohighlight">\(
+\begin{array}{|c|c|}
+\hline
+\text{Iterasi} &amp; A_k\\
+\hline
+4 &amp;
+\begin{bmatrix}
+5.5600 &amp; -1.9300\\
+0.0710 &amp; 2.0600
+\end{bmatrix}
+\\
+\hline
+5 &amp;
+\begin{bmatrix}
+5.5960 &amp; -1.9600\\
+0.0280 &amp; 1.9040
+\end{bmatrix}
+\\
+\hline
+6 &amp;
+\begin{bmatrix}
+5.6130 &amp; -1.9700\\
+0.0110 &amp; 1.7870
+\end{bmatrix}
+\\
+\hline
+7 &amp;
+\begin{bmatrix}
+5.6200 &amp; -1.9720\\
+0.0040 &amp; 1.6800
+\end{bmatrix}
+\\
+\hline
+8 &amp;
+\begin{bmatrix}
+5.6220 &amp; -1.9730\\
+0.0015 &amp; 1.5780
+\end{bmatrix}
+\\
+\hline
+9 &amp;
+\begin{bmatrix}
+5.6224 &amp; -1.9731\\
+0.0005 &amp; 1.4776
+\end{bmatrix}
+\\
+\hline
+10 &amp;
+\begin{bmatrix}
+5.6225 &amp; -1.9731\\
+0.0001 &amp; 1.3775
+\end{bmatrix}
+\\
+\hline
+\end{array}
+\)</span></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="nilai-eigen">
+<h1>Nilai Eigen<a class="headerlink" href="#nilai-eigen" title="Link to this heading">#</a></h1>
+<p>Karena elemen di bawah diagonal mendekati nol, maka nilai eigen diperoleh dari diagonal matriks iterasi ke-10:</p>
+<p><span class="math notranslate nohighlight">\(
+\lambda_1 \approx 5.6225
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\lambda_2 \approx 1.3775
+\)</span></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="menentukan-eigen-vektor">
+<h1>menentukan Eigen vektor<a class="headerlink" href="#menentukan-eigen-vektor" title="Link to this heading">#</a></h1>
+<p>untuk :</p>
+<p><span class="math notranslate nohighlight">\(
+\lambda_1 \approx 5.6225
+\)</span></p>
+<p>selesaikan :
+<span class="math notranslate nohighlight">\(
+(A-\lambda_1I)x=0
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{bmatrix}
+-1.6225 &amp; 1\\
+2 &amp; -2.6225
+\end{bmatrix}
+\begin{bmatrix}
+x\\
+y
+\end{bmatrix}
+=0
+\)</span></p>
+<p>Diperoleh</p>
+<p><span class="math notranslate nohighlight">\(
+y=1.6225x
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(Ambil \(x=1\),\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+v_1=
+\begin{bmatrix}
+1\\
+1.6225
+\end{bmatrix}
+\)</span></p>
+<p>Normalisasi:</p>
+<p><span class="math notranslate nohighlight">\(
+v_1=
+\begin{bmatrix}
+0.524\\
+0.852
+\end{bmatrix}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(Eigen Vektor untuk (\lambda_2\)\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+(A-\lambda_2I)x=0
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{bmatrix}
+2.6225 &amp; 1\\
+2 &amp; 1.6225
+\end{bmatrix}
+\begin{bmatrix}
+x\\
+y
+\end{bmatrix}
+=0
+\)</span></p>
+<p>Diperoleh</p>
+<p><span class="math notranslate nohighlight">\(
+y=-2.6225x
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(Ambil \(x=1\),\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+v_2=
+\begin{bmatrix}
+1\\
+-2.6225
+\end{bmatrix}
+\)</span></p>
+<p>Normalisasi:</p>
+<p><span class="math notranslate nohighlight">\(
+v_2=
+\begin{bmatrix}
+0.356\\
+-0.934
+\end{bmatrix}
+\)</span></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Matriks Awal</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span>
+              <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">]])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tahap 1 — Menentukan Matriks Awal&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Matriks A:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="n">a1</span> <span class="o">=</span> <span class="n">A</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="n">A</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Kolom a1:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Kolom a2:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a2</span><span class="p">)</span>
+
+<span class="c1"># ==================================================</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tahap 2 — Membentuk Vektor q1&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="n">norm_a1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Norma a1:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sqrt(</span><span class="si">{</span><span class="n">a1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">^2 + </span><span class="si">{</span><span class="n">a1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">^2) = </span><span class="si">{</span><span class="n">norm_a1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">q1</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">/</span> <span class="n">norm_a1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Vektor q1:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">q1</span><span class="p">)</span>
+
+<span class="c1"># ==================================================</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tahap 3 — Menghitung Proyeksi a2&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="n">r12</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">q1</span><span class="p">,</span> <span class="n">a2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">q1 . a2 =&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">r12</span><span class="p">)</span>
+
+<span class="n">proj</span> <span class="o">=</span> <span class="n">r12</span> <span class="o">*</span> <span class="n">q1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Proyeksi a2 pada q1:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">proj</span><span class="p">)</span>
+
+<span class="c1"># ==================================================</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tahap 4 — Membentuk Vektor Ortogonal u2&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="n">u2</span> <span class="o">=</span> <span class="n">a2</span> <span class="o">-</span> <span class="n">proj</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">u2 = a2 - proj&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">u2</span><span class="p">)</span>
+
+<span class="c1"># ==================================================</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tahap 5 — Membentuk Vektor q2&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="n">norm_u2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">u2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Norma u2:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">norm_u2</span><span class="p">)</span>
+
+<span class="n">q2</span> <span class="o">=</span> <span class="n">u2</span> <span class="o">/</span> <span class="n">norm_u2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Vektor q2:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">q2</span><span class="p">)</span>
+
+<span class="c1"># ==================================================</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tahap 6 — Membentuk Matriks Q dan R&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">q1</span><span class="p">,</span> <span class="n">q2</span><span class="p">))</span>
+
+<span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="n">norm_a1</span><span class="p">,</span> <span class="n">r12</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">norm_u2</span><span class="p">]</span>
+<span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Matriks Q:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Matriks R:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+
+<span class="c1"># ==================================================</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tahap 7 — Verifikasi QR&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Q × R =&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">Q</span> <span class="o">@</span> <span class="n">R</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># ==================================================</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tahap 8 — Iterasi QR Pertama&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="n">A1</span> <span class="o">=</span> <span class="n">R</span> <span class="o">@</span> <span class="n">Q</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">A1 = R × Q&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">A1</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="link-collab">
+<h1>link collab :<a class="headerlink" href="#link-collab" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://colab.research.google.com/drive/1CTpSzqCmWY4QkffLhesMFUJ7VdLY_Mua?usp=sharing">https://colab.research.google.com/drive/1CTpSzqCmWY4QkffLhesMFUJ7VdLY_Mua?usp=sharing</a></p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="materi5.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Materi 5: Materi tentang Determinan dan Invers Matriks</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="materi7.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Materi 7: Transformasi Matriks dan Implementasinya pada Vektor 2D</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Materi 6 : Eigen Value dan Eigen Vektor dengan Dekomposi QR</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eigen-value-dan-eigen-vektor-dengan-dekomposisi-qr-menggunakan-gram-schmidt">Eigen Value dan Eigen Vektor dengan Dekomposisi QR Menggunakan Gram-Schmidt</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#iterasi-1">Iterasi 1</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-1-ambil-kolom-kolom-matriks">Langkah 1 : Ambil Kolom-kolom matriks:</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-2-mencari-q1">Langkah 2: Mencari q1	​</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-1">$
+|a_1|</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sqrt-4-2-2-2">\sqrt{4^2+2^2}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sqrt-20">\sqrt{20}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#q-1">$
+q_1</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#frac-a-1-a-1">\frac{a_1}{|a_1|}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-3-mencari-q2">Langkah 3: Mencari q2	​</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#r-12">$r_{12}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#q-1-ta-2">q_1^Ta_2</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">(0.8944)(1)+(0.4472)(3)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#u-2">$
+u_2</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">$</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#begin-bmatrix-1-3-end-bmatrix">\begin{bmatrix}
+1\
+3
+\end{bmatrix}</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#begin-bmatrix-0-8944-0-4472-end-bmatrix">2.2361
+\begin{bmatrix}
+0.8944\
+0.4472
+\end{bmatrix}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#r-22">$
+r_{22}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sqrt-1-2-2-2">\sqrt{(-1)^2+2^2}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sqrt5">\sqrt5</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#q-2">$
+q_2</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#frac-u-2-r-22">\frac{u_2}{r_{22}}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-4-bentuk-q1-dan-r1">Langkah 4: Bentuk Q1 dan R1</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-5-hitung-a1-r1-q1">Langkah 5: Hitung A1 =R1 Q1</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#iterasi-2">Iterasi 2</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#r-11">$
+r_{11}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sqrt-5-2-1-2">\sqrt{5^2+1^2}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">$
+r_{12}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">q_1^Ta_2</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">(0.9806)(-1)+(0.1961)(2)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">$
+u_2</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-2-r-12-q-1">a_2-r_{12}q_1</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#iterasi-3">Iterasi 3</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-3-r-3q-3">$
+A_3=
+R_3Q_3</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#iterasi-4-10">Iterasi 4–10</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#nilai-eigen">Nilai Eigen</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-eigen-vektor">menentukan Eigen vektor</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#link-collab">link collab :</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
