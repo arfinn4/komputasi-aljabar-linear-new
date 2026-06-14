@@ -253,7 +253,7 @@ $\begin{aligned}
 \end{vmatrix}
 \end{aligned}$
 
-Karena $\det(A)\neq0$, maka invers ada.
+Karena $\det(A)\neq0$, maka invers ada
 
 # Langkah 2 : Matriks Kofaktor
 
