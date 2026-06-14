@@ -60,40 +60,40 @@ Ekspansi pada baris pertama:
 $
 \det(A)
 =
-1\begin{vmatrix}
+1\begin{bmatrix}
 4 & 5\\
 0 & 6
-\end{vmatrix}
+\end{bmatrix}
 -
-2\begin{vmatrix}
+2\begin{bmatrix}
 0 & 5\\
 1 & 6
-\end{vmatrix}
+\end{bmatrix}
 +
-3\begin{vmatrix}
+3\begin{bmatrix}
 0 & 4\\
 1 & 0
-\end{vmatrix}
+\end{bmatrix}
 $
 
 Hitung masing-masing minor ;
 
 $
 \begin{aligned}
-\begin{vmatrix}
+\begin{bmatrix}
 4 & 5 \\
 0 & 6
-\end{vmatrix}
+\end{bmatrix}
 &= 24 \\[6pt]
-\begin{vmatrix}
+\begin{bmatrix}
 0 & 5 \\
 1 & 6
-\end{vmatrix}
+\end{bmatrix}
 &= -5 \\[6pt]
-\begin{vmatrix}
+\begin{bmatrix}
 0 & 4 \\
 1 & 0
-\end{vmatrix}
+\end{bmatrix}
 &= -4
 \end{aligned}
 $
@@ -137,60 +137,60 @@ $
 
 minor pertama :
 
-$$
+$
 M_{11}
 =
-\begin{vmatrix}
+\begin{bmatrix}
 1 & 2 & 0 \\
 4 & 1 & 2 \\
 0 & 3 & 1
-\end{vmatrix}
+\end{bmatrix}
 =
 -13
-$$
+$
 
 minor kedua :
 
-$$
+$
 M_{12}
 =
-\begin{vmatrix}
+\begin{bmatrix}
 3&2&0\\
 0&1&2\\
 1&3&1
-\end{vmatrix}
+\end{bmatrix}
 =-11
-$$
+$
 
 minor keempat :
 
-$$
+$
 M_{14}
 =
-\begin{vmatrix}
+\begin{bmatrix}
 3&1&2\\
 0&4&1\\
 1&0&3
-\end{vmatrix}
+\end{bmatrix}
 =29
-$$
+$
 
 Sehingga
 
-$$
+$
 \det(A)
 =
 1(-13)-2(-11)-29
-$$
+$
 
-$$
+$
 =
 -13+22-29
-$$
+$
 
-$$
+$
 \boxed{\det(A)=-20}
-$$
+$
 
 # 4. Matriks 2x2 (Invers)
 Diberikan matriks
@@ -266,22 +266,22 @@ $
 \det(A)
 =
 1
-\begin{vmatrix}
+\begin{bmatrix}
 1 & 1\\
 3 & 4
-\end{vmatrix}
+\end{bmatrix}
 -
 2
-\begin{vmatrix}
+\begin{bmatrix}
 0 & 1\\
 2 & 4
-\end{vmatrix}
+\end{bmatrix}
 +
 1
-\begin{vmatrix}
+\begin{bmatrix}
 0 & 1\\
 2 & 3
-\end{vmatrix}
+\end{bmatrix}
 $
 
 $
