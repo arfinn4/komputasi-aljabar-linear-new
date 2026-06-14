@@ -327,6 +327,8 @@
 
 
 
+
+
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Tugas Transformasi sumbu Y menggunakan Translasi dan pencerminan</a></li>
 
 
@@ -344,7 +346,6 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="tugas%20terakhir.html">Tugas Singular Value Decomposition (SVD) pada Kompresi Citra</a></li>
-
 
 
 
@@ -613,11 +614,9 @@ A(1,1),\; B(3,1),\; C(3,3),\; D(1,3)
 </pre></div>
 </div>
 <p>Artinya, pada setiap langkah objek bergeser 1 satuan ke kanan.</p>
-<p>Keterangan:</p>
-<p><span class="math notranslate nohighlight">\(\begin{itemize}
-    \item Nilai x berubah \rightarrow objek bergerak secara horizontal.
-    \item Nilai y tetap \rightarrow tidak ada perubahan vertikal.
-\end{itemize}\)</span></p>
+<p>Keterangan:
+Nilai x berubah \rightarrow objek bergerak secara horizontal.
+Nilai y tetap \rightarrow tidak ada perubahan vertikal.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="translasi-dalam-bentuk-matriks">
 <h1>Translasi dalam Bentuk Matriks<a class="headerlink" href="#translasi-dalam-bentuk-matriks" title="Link to this heading">#</a></h1>
@@ -656,11 +655,8 @@ P' = T \cdot P
 (x,y)\rightarrow(-x,y)
 \)</span></p>
 <p>Artinya:
-<span class="math notranslate nohighlight">\(
-\begin{itemize}
-    \item Koordinat x dibalik (kanan \leftrightarrow kiri).
-    \item Koordinat y tetap.
-\end{itemize}\)</span></p>
+Koordinat x dibalik <span class="math notranslate nohighlight">\((kanan \leftrightarrow kiri).\)</span>
+Koordinat y tetap.</p>
 <p>Contoh:</p>
 <p><span class="math notranslate nohighlight">\(
 (4,2)\rightarrow(-4,2)
@@ -689,29 +685,29 @@ P' = R \cdot P
 <section class="tex2jax_ignore mathjax_ignore" id="transformasi-gabungan">
 <h1>Transformasi Gabungan<a class="headerlink" href="#transformasi-gabungan" title="Link to this heading">#</a></h1>
 <p>Urutan transformasi yang digunakan pada program adalah:</p>
-<p><span class="math notranslate nohighlight">\(\begin{enumerate}
-    \item Translasi
-    \item Refleksi
-\end{enumerate}\)</span></p>
+<ul class="simple">
+<li><p>Translasi</p></li>
+<li><p>Refleksi</p></li>
+</ul>
 <p>Sehingga:</p>
 <p><span class="math notranslate nohighlight">\(
 P' = R \cdot T \cdot P
 \)</span></p>
 <p>Artinya:</p>
-<p><span class="math notranslate nohighlight">\(\begin{itemize}
-    \item Titik digeser terlebih dahulu.
-    \item Setelah itu hasilnya dicerminkan terhadap sumbu Y
-\end{itemize}\)</span></p>
+<ul class="simple">
+<li><p>Titik digeser terlebih dahulu.</p></li>
+<li><p>Setelah itu hasilnya dicerminkan terhadap sumbu Y</p></li>
+</ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="proses-animasi-loop">
 <h1>Proses Animasi (Loop)<a class="headerlink" href="#proses-animasi-loop" title="Link to this heading">#</a></h1>
 <p>Pada setiap langkah animasi:</p>
-<p><span class="math notranslate nohighlight">\(\begin{enumerate}
-    \item Objek ditranslasi (bergeser ke kanan).
-    \item Hasil translasi direfleksikan terhadap sumbu Y
-    \item Objek dan bayangannya ditampilkan.
-    \item Proses diulang untuk frame berikutnya.
-\end{enumerate}\)</span></p>
+<ul class="simple">
+<li><p>Objek ditranslasi (bergeser ke kanan).</p></li>
+<li><p>Hasil translasi direfleksikan terhadap sumbu Y</p></li>
+<li><p>Objek dan bayangannya ditampilkan.</p></li>
+<li><p>Proses diulang untuk frame berikutnya.</p></li>
+</ul>
 <p>Dengan pengulangan ini terbentuk animasi pergerakan objek.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="mengapa-objek-dan-bayangan-selalu-sejajar">
@@ -724,11 +720,11 @@ x_{\text{bayangan}} = -x_{\text{objek}}
 y_{\text{bayangan}} = y_{\text{objek}}
 \)</span></p>
 <p>Akibatnya:</p>
-<p><span class="math notranslate nohighlight">\(\begin{itemize}
-    \item Jarak objek dan bayangan terhadap sumbu y selalu sama.
-    \item Posisinya berada pada sisi yang berlawanan.
-    \item Objek dan bayangan tampak sejajar.
-\end{itemize}\)</span></p>
+<ul class="simple">
+<li><p>Jarak objek dan bayangan terhadap sumbu y selalu sama.</p></li>
+<li><p>Posisinya berada pada sisi yang berlawanan.</p></li>
+<li><p>Objek dan bayangan tampak sejajar.</p></li>
+</ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="sistem-animasi">
 <h1>Sistem Animasi<a class="headerlink" href="#sistem-animasi" title="Link to this heading">#</a></h1>
@@ -737,22 +733,22 @@ y_{\text{bayangan}} = y_{\text{objek}}
 </pre></div>
 </div>
 <p>Fungsi ini digunakan untuk:</p>
-<p><span class="math notranslate nohighlight">\(\begin{itemize}
-    \item Menjalankan frame secara berulang.
-    \item Memperbarui tampilan pada setiap langkah animasi.
-    \item Menampilkan pergerakan objek secara dinamis.
-\end{itemize}\)</span></p>
+<ul class="simple">
+<li><p>Menjalankan frame secara berulang.</p></li>
+<li><p>Memperbarui tampilan pada setiap langkah animasi.</p></li>
+<li><p>Menampilkan pergerakan objek secara dinamis.</p></li>
+</ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="visualisasi">
 <h1>Visualisasi<a class="headerlink" href="#visualisasi" title="Link to this heading">#</a></h1>
 <p>Pada setiap frame ditampilkan:</p>
-<p><span class="math notranslate nohighlight">\(\begin{itemize}
-    \item Objek (warna biru).
-    \item Bayangan hasil refleksi (warna merah).
-    \item Grid koordinat.
-    \item Sumbu x dan y
-    \item Label titik-titik objek.
-\end{itemize}\)</span></p>
+<ul class="simple">
+<li><p>Objek (warna biru).</p></li>
+<li><p>Bayangan hasil refleksi (warna merah).</p></li>
+<li><p>Grid koordinat.</p></li>
+<li><p>Sumbu x dan y</p></li>
+<li><p>Label titik-titik objek.</p></li>
+</ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="alur-program">
 <h1>Alur Program<a class="headerlink" href="#alur-program" title="Link to this heading">#</a></h1>

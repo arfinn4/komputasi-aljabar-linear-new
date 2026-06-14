@@ -39,12 +39,10 @@ Distance : 128.45
 Artinya sistem berhasil melakukan proses Face Recognition menggunakan metode EigenFace berbasis Singular Value Decomposition (SVD).
 
 # Tujuan utama metode EigenFace adalah:
-$
-\begin{itemize}
-\item Mengekstraksi ciri-ciri penting wajah.
-\item Mengurangi dimensi data wajah.
-\item Mengenali identitas seseorang dari gambar wajah.
-\end{itemize}$
+- Mengekstraksi ciri-ciri penting wajah.
+- Mengurangi dimensi data wajah.
+- Mengenali identitas seseorang dari gambar wajah.
+
 
 # Membaca Dataset Wajah
 Saat program dijalankan, setiap gambar dibaca dalam bentuk grayscale.
@@ -56,8 +54,8 @@ $
 
 Artinya:
 $
-\item Lebar = 100 piksel
-\item Tinggi = 100 piksel
+Lebar = 100 piksel
+Tinggi = 100 piksel
 $
 
 Jumlah piksel:
@@ -109,11 +107,8 @@ X = (30x10000)
 $
 
 dengan:
-$
-\begin{itemize}
-\item 30 baris = jumlah gambar wajah
-\item 10000 kolom = jumlah piksel
-\end{itemize}$
+- 30 baris = jumlah gambar wajah
+- 10000 kolom = jumlah piksel
 
 Setiap baris mewakili satu wajah.
 
@@ -127,11 +122,9 @@ $
 $
 
 dengan:
-$
-\begin{itemize}
-\item N = jumlah gambar
-\item x_i = wajah ke-i
-\end{itemize}$
+N = jumlah gambar
+x_i = wajah ke-i
+
 
 Mean Face digunakan sebagai wajah rata-rata seluruh dataset.
 
@@ -156,27 +149,13 @@ A = U\Sigma V^T
 $
 
 untuk memecah data wajah menjadi beberapa komponen utama.
-
-$
-\begin{center}
-\begin{tabular}{|c|c|}
-\hline
-Matriks & Fungsi \\
-\hline
-u & Hubungan antar gambar wajah \\
-\Sigma & Tingkat kepentingan fitur \\
-V^T & EigenFace \\
-\hline
-\end{tabular}
-\end{center}$
+Matriks & Fungsi 
+Hubungan antar gambar wajah Sigma & Tingkat kepentingan fitur V^T & EigenFace
 
 Secara sederhana:
-
-$\begin{itemize}
-\item U = pola kemunculan wajah
-\item \Sigma = kekuatan informasi
-\item V^T = ciri-ciri utama wajah
-\end{itemize}$
+U = pola kemunculan wajah
+Sigma = kekuatan informasi
+V^T = ciri-ciri utama wajah
 
 # Menghitung SVD
 
@@ -249,14 +228,11 @@ $
 
 Setiap $e_i$ disebut EigenFace.
 EigenFace menyimpan informasi penting seperti:
-
-$\begin{itemize}
-\item Bentuk mata
-\item Bentuk hidung
-\item Bentuk mulut
-\item Kontur wajah
-\item Pencahayaan
-\end{itemize}$
+- Bentuk mata
+- Bentuk hidung
+- Bentuk mulut
+- Kontur wajah
+- Pencahayaan
 
 # Menampilkan EigenFace
 EigenFace yang ditampilkan bukan wajah asli seseorang.
@@ -271,11 +247,8 @@ w = Ex
 $
 
 dengan:
-$
-\begin{itemize}
-\item E = EigenFace
-\item X = wajah
-\end{itemize}$
+ E = EigenFace
+ X = wajah
 
 Hasilnya:
 
@@ -323,9 +296,8 @@ Semakin kecil nilai $d$, maka semakin mirip kedua wajah.
 # Menentukan Wajah Terdekat
 Sistem mencari nilai jarak terkecil:
 
+
 $
-\text{best}
-=
 \arg\min(d_i)
 $
 
@@ -369,27 +341,24 @@ Semakin mendekati nol, maka wajah semakin mirip.
 
 # Alur Lengkap Face Recognition dengan EigenFace
 
-$\begin{enumerate}
-\item Membaca seluruh gambar wajah.
-\item Resize menjadi 100x100
-\item Mengubah gambar menjadi vektor 10000 piksel.
-\item Menghitung Mean Face.
-\item Membentuk matriks:
-\[
-A = X - \mu
-\]
-\item Menghitung SVD:
-\[
-A = U\Sigma V^T
-\]
-\item Mengambil 20 EigenFace.
-\item Memproyeksikan data training menjadi weight vector.
-\item Memproyeksikan gambar test menjadi weight vector.
-\item Menghitung jarak Euclidean.
-\item Mencari jarak terkecil.
-\item Menampilkan identitas wajah yang paling mirip.
-\end{enumerate}
+- Membaca seluruh gambar wajah.
+- Resize menjadi 100x100
+- Mengubah gambar menjadi vektor 10000 piksel.
+- Menghitung Mean Face.
+- Membentuk matriks:
 $
+A = X - \mu
+$
+- Menghitung SVD:
+$
+A = U\Sigma V^T
+$
+- Mengambil 20 EigenFace.
+- Memproyeksikan data training menjadi weight vector.
+- Memproyeksikan gambar test menjadi weight vector.
+- Menghitung jarak Euclidean.
+- Mencari jarak terkecil.
+- Menampilkan identitas wajah yang paling mirip.
 
 # Kesimpulan
 Metode EigenFace berbasis Singular Value Decomposition (SVD) digunakan untuk mengekstraksi fitur-fitur penting dari wajah dan mengurangi dimensi data dari 10000 piksel menjadi 20 komponen utama (EigenFace). Setiap wajah kemudian direpresentasikan dalam bentuk weight vector dan dibandingkan menggunakan jarak Euclidean. Wajah dengan jarak terkecil terhadap gambar uji dianggap sebagai wajah yang paling mirip dan ditampilkan sebagai hasil pengenalan wajah. Dengan cara ini, proses identifikasi menjadi lebih cepat, efisien, dan tetap mampu mempertahankan karakteristik utama wajah.

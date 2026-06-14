@@ -30,11 +30,9 @@ dx = 1
 Artinya, pada setiap langkah objek bergeser 1 satuan ke kanan.
 
 Keterangan:
+ Nilai x berubah \rightarrow objek bergerak secara horizontal.
+ Nilai y tetap \rightarrow tidak ada perubahan vertikal.
 
-$\begin{itemize}
-    \item Nilai x berubah \rightarrow objek bergerak secara horizontal.
-    \item Nilai y tetap \rightarrow tidak ada perubahan vertikal.
-\end{itemize}$
 
 # Translasi dalam Bentuk Matriks
 Dalam koordinat homogen, translasi dapat dituliskan sebagai:
@@ -81,11 +79,8 @@ $
 $
 
 Artinya:
-$
-\begin{itemize}
-    \item Koordinat x dibalik (kanan \leftrightarrow kiri).
-    \item Koordinat y tetap.
-\end{itemize}$
+Koordinat x dibalik $(kanan \leftrightarrow kiri).$
+Koordinat y tetap.
 
 Contoh:
 
@@ -119,11 +114,8 @@ $
 
 # Transformasi Gabungan
 Urutan transformasi yang digunakan pada program adalah:
-
-$\begin{enumerate}
-    \item Translasi
-    \item Refleksi
-\end{enumerate}$
+- Translasi
+- Refleksi
 
 Sehingga:
 
@@ -132,21 +124,16 @@ P' = R \cdot T \cdot P
 $
 
 Artinya:
-
-$\begin{itemize}
-    \item Titik digeser terlebih dahulu.
-    \item Setelah itu hasilnya dicerminkan terhadap sumbu Y
-\end{itemize}$
+- Titik digeser terlebih dahulu.
+- Setelah itu hasilnya dicerminkan terhadap sumbu Y
 
 # Proses Animasi (Loop)
 Pada setiap langkah animasi:
 
-$\begin{enumerate}
-    \item Objek ditranslasi (bergeser ke kanan).
-    \item Hasil translasi direfleksikan terhadap sumbu Y
-    \item Objek dan bayangannya ditampilkan.
-    \item Proses diulang untuk frame berikutnya.
-\end{enumerate}$
+- Objek ditranslasi (bergeser ke kanan).
+- Hasil translasi direfleksikan terhadap sumbu Y
+- Objek dan bayangannya ditampilkan.
+- Proses diulang untuk frame berikutnya.
 
 Dengan pengulangan ini terbentuk animasi pergerakan objek.
 
@@ -163,11 +150,9 @@ $
 
 Akibatnya:
 
-$\begin{itemize}
-    \item Jarak objek dan bayangan terhadap sumbu y selalu sama.
-    \item Posisinya berada pada sisi yang berlawanan.
-    \item Objek dan bayangan tampak sejajar.
-\end{itemize}$
+- Jarak objek dan bayangan terhadap sumbu y selalu sama.
+- Posisinya berada pada sisi yang berlawanan.
+- Objek dan bayangan tampak sejajar.
 
 # Sistem Animasi
 Program menggunakan:
@@ -178,22 +163,18 @@ matplotlib.animation.FuncAnimation
 
 Fungsi ini digunakan untuk:
 
-$\begin{itemize}
-    \item Menjalankan frame secara berulang.
-    \item Memperbarui tampilan pada setiap langkah animasi.
-    \item Menampilkan pergerakan objek secara dinamis.
-\end{itemize}$
+- Menjalankan frame secara berulang.
+- Memperbarui tampilan pada setiap langkah animasi.
+- Menampilkan pergerakan objek secara dinamis.
 
 # Visualisasi
 Pada setiap frame ditampilkan:
 
-$\begin{itemize}
-    \item Objek (warna biru).
-    \item Bayangan hasil refleksi (warna merah).
-    \item Grid koordinat.
-    \item Sumbu x dan y
-    \item Label titik-titik objek.
-\end{itemize}$
+- Objek (warna biru).
+- Bayangan hasil refleksi (warna merah).
+- Grid koordinat.
+- Sumbu x dan y
+- Label titik-titik objek.
 
 # Alur Program
 

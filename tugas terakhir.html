@@ -326,6 +326,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="Tugas%20Transformasi%20sumbu%20Y%20menggunakan%20Translasi%20dan%20pencerminan.html">Tugas Transformasi sumbu Y menggunakan Translasi dan pencerminan</a></li>
 
 
@@ -343,7 +345,6 @@
 
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Tugas Singular Value Decomposition (SVD) pada Kompresi Citra</a></li>
-
 
 
 
@@ -578,8 +579,6 @@
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#memproses-gambar-test">Memproses Gambar Test</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-jarak-kemiripan">Menghitung Jarak Kemiripan</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-wajah-terdekat">Menentukan Wajah Terdekat</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#text-best">$
-\text{best}</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-face-recognition">Hasil Face Recognition</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#alur-lengkap-face-recognition-dengan-eigenface">Alur Lengkap Face Recognition dengan EigenFace</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
@@ -638,12 +637,11 @@
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="tujuan-utama-metode-eigenface-adalah">
 <h1>Tujuan utama metode EigenFace adalah:<a class="headerlink" href="#tujuan-utama-metode-eigenface-adalah" title="Link to this heading">#</a></h1>
-<p><span class="math notranslate nohighlight">\(
-\begin{itemize}
-\item Mengekstraksi ciri-ciri penting wajah.
-\item Mengurangi dimensi data wajah.
-\item Mengenali identitas seseorang dari gambar wajah.
-\end{itemize}\)</span></p>
+<ul class="simple">
+<li><p>Mengekstraksi ciri-ciri penting wajah.</p></li>
+<li><p>Mengurangi dimensi data wajah.</p></li>
+<li><p>Mengenali identitas seseorang dari gambar wajah.</p></li>
+</ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="membaca-dataset-wajah">
 <h1>Membaca Dataset Wajah<a class="headerlink" href="#membaca-dataset-wajah" title="Link to this heading">#</a></h1>
@@ -654,8 +652,8 @@ Ukuran gambar yang digunakan adalah:</p>
 \)</span></p>
 <p>Artinya:
 <span class="math notranslate nohighlight">\(
-\item Lebar = 100 piksel
-\item Tinggi = 100 piksel
+Lebar = 100 piksel
+Tinggi = 100 piksel
 \)</span></p>
 <p>Jumlah piksel:</p>
 <p><span class="math notranslate nohighlight">\(
@@ -694,12 +692,11 @@ x_i = (1x10000)
 <p><span class="math notranslate nohighlight">\(
 X = (30x10000)
 \)</span></p>
-<p>dengan:
-<span class="math notranslate nohighlight">\(
-\begin{itemize}
-\item 30 baris = jumlah gambar wajah
-\item 10000 kolom = jumlah piksel
-\end{itemize}\)</span></p>
+<p>dengan:</p>
+<ul class="simple">
+<li><p>30 baris = jumlah gambar wajah</p></li>
+<li><p>10000 kolom = jumlah piksel</p></li>
+</ul>
 <p>Setiap baris mewakili satu wajah.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="menghitung-mean-face">
@@ -711,11 +708,8 @@ X = (30x10000)
 \sum_{i=1}^{N} x_i
 \)</span></p>
 <p>dengan:
-<span class="math notranslate nohighlight">\(
-\begin{itemize}
-\item N = jumlah gambar
-\item x_i = wajah ke-i
-\end{itemize}\)</span></p>
+N = jumlah gambar
+x_i = wajah ke-i</p>
 <p>Mean Face digunakan sebagai wajah rata-rata seluruh dataset.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="membentuk-matriks-a">
@@ -736,25 +730,13 @@ A = X - \mu
 <span class="math notranslate nohighlight">\(
 A = U\Sigma V^T
 \)</span></p>
-<p>untuk memecah data wajah menjadi beberapa komponen utama.</p>
-<p><span class="math notranslate nohighlight">\(
-\begin{center}
-\begin{tabular}{|c|c|}
-\hline
-Matriks &amp; Fungsi \\
-\hline
-u &amp; Hubungan antar gambar wajah \\
-\Sigma &amp; Tingkat kepentingan fitur \\
-V^T &amp; EigenFace \\
-\hline
-\end{tabular}
-\end{center}\)</span></p>
-<p>Secara sederhana:</p>
-<p><span class="math notranslate nohighlight">\(\begin{itemize}
-\item U = pola kemunculan wajah
-\item \Sigma = kekuatan informasi
-\item V^T = ciri-ciri utama wajah
-\end{itemize}\)</span></p>
+<p>untuk memecah data wajah menjadi beberapa komponen utama.
+Matriks &amp; Fungsi
+Hubungan antar gambar wajah Sigma &amp; Tingkat kepentingan fitur V^T &amp; EigenFace</p>
+<p>Secara sederhana:
+U = pola kemunculan wajah
+Sigma = kekuatan informasi
+V^T = ciri-ciri utama wajah</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="menghitung-svd">
 <h1>Menghitung SVD<a class="headerlink" href="#menghitung-svd" title="Link to this heading">#</a></h1>
@@ -812,13 +794,13 @@ e_{20}
 \)</span></p>
 <p>Setiap <span class="math notranslate nohighlight">\(e_i\)</span> disebut EigenFace.
 EigenFace menyimpan informasi penting seperti:</p>
-<p><span class="math notranslate nohighlight">\(\begin{itemize}
-\item Bentuk mata
-\item Bentuk hidung
-\item Bentuk mulut
-\item Kontur wajah
-\item Pencahayaan
-\end{itemize}\)</span></p>
+<ul class="simple">
+<li><p>Bentuk mata</p></li>
+<li><p>Bentuk hidung</p></li>
+<li><p>Bentuk mulut</p></li>
+<li><p>Kontur wajah</p></li>
+<li><p>Pencahayaan</p></li>
+</ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="menampilkan-eigenface">
 <h1>Menampilkan EigenFace<a class="headerlink" href="#menampilkan-eigenface" title="Link to this heading">#</a></h1>
@@ -833,11 +815,8 @@ Biasanya terlihat sebagai bayangan wajah hitam putih yang samar.</p>
 w = Ex
 \)</span></p>
 <p>dengan:
-<span class="math notranslate nohighlight">\(
-\begin{itemize}
-\item E = EigenFace
-\item X = wajah
-\end{itemize}\)</span></p>
+E = EigenFace
+X = wajah</p>
 <p>Hasilnya:</p>
 <p>$
 w =
@@ -880,12 +859,9 @@ d=
 <section class="tex2jax_ignore mathjax_ignore" id="menentukan-wajah-terdekat">
 <h1>Menentukan Wajah Terdekat<a class="headerlink" href="#menentukan-wajah-terdekat" title="Link to this heading">#</a></h1>
 <p>Sistem mencari nilai jarak terkecil:</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="text-best">
-<h1>$
-\text{best}<a class="headerlink" href="#text-best" title="Link to this heading">#</a></h1>
-<p>\arg\min(d_i)
-$</p>
+<p><span class="math notranslate nohighlight">\(
+\arg\min(d_i)
+\)</span></p>
 <p>Contoh:</p>
 <p><span class="math notranslate nohighlight">\(\begin{center}
 \begin{tabular}{|c|c|}
@@ -920,27 +896,26 @@ Semakin mendekati nol, maka wajah semakin mirip.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="alur-lengkap-face-recognition-dengan-eigenface">
 <h1>Alur Lengkap Face Recognition dengan EigenFace<a class="headerlink" href="#alur-lengkap-face-recognition-dengan-eigenface" title="Link to this heading">#</a></h1>
-<p><span class="math notranslate nohighlight">\(\begin{enumerate}
-\item Membaca seluruh gambar wajah.
-\item Resize menjadi 100x100
-\item Mengubah gambar menjadi vektor 10000 piksel.
-\item Menghitung Mean Face.
-\item Membentuk matriks:
-\[
+<ul class="simple">
+<li><p>Membaca seluruh gambar wajah.</p></li>
+<li><p>Resize menjadi 100x100</p></li>
+<li><p>Mengubah gambar menjadi vektor 10000 piksel.</p></li>
+<li><p>Menghitung Mean Face.</p></li>
+<li><p>Membentuk matriks:
+<span class="math notranslate nohighlight">\(
 A = X - \mu
-\]
-\item Menghitung SVD:
-\[
+\)</span></p></li>
+<li><p>Menghitung SVD:
+<span class="math notranslate nohighlight">\(
 A = U\Sigma V^T
-\]
-\item Mengambil 20 EigenFace.
-\item Memproyeksikan data training menjadi weight vector.
-\item Memproyeksikan gambar test menjadi weight vector.
-\item Menghitung jarak Euclidean.
-\item Mencari jarak terkecil.
-\item Menampilkan identitas wajah yang paling mirip.
-\end{enumerate}
-\)</span></p>
+\)</span></p></li>
+<li><p>Mengambil 20 EigenFace.</p></li>
+<li><p>Memproyeksikan data training menjadi weight vector.</p></li>
+<li><p>Memproyeksikan gambar test menjadi weight vector.</p></li>
+<li><p>Menghitung jarak Euclidean.</p></li>
+<li><p>Mencari jarak terkecil.</p></li>
+<li><p>Menampilkan identitas wajah yang paling mirip.</p></li>
+</ul>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="kesimpulan">
 <h1>Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h1>
@@ -1024,8 +999,6 @@ A = U\Sigma V^T
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#memproses-gambar-test">Memproses Gambar Test</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-jarak-kemiripan">Menghitung Jarak Kemiripan</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-wajah-terdekat">Menentukan Wajah Terdekat</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#text-best">$
-\text{best}</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-face-recognition">Hasil Face Recognition</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#alur-lengkap-face-recognition-dengan-eigenface">Alur Lengkap Face Recognition dengan EigenFace</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>

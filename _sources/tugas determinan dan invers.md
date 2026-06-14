@@ -29,17 +29,15 @@ $A=
 \end{bmatrix}$
 
 Hitung determinan dengan ekspansi baris pertama :
-$\det(A)
+$
+\det(A)
 =
-3
-\begin{vmatrix}
-4
-\end{vmatrix}
--
-2
-\begin{vmatrix}
-1
-\end{vmatrix}$
+3(4)-2(1)
+=
+12-2
+=
+10
+$
 
 $=3(4)-2(1)$
 
@@ -62,20 +60,17 @@ Ekspansi pada baris pertama:
 $
 \det(A)
 =
-1
-\begin{vmatrix}
+1\begin{vmatrix}
 4 & 5\\
 0 & 6
 \end{vmatrix}
 -
-2
-\begin{vmatrix}
+2\begin{vmatrix}
 0 & 5\\
 1 & 6
 \end{vmatrix}
 +
-3
-\begin{vmatrix}
+3\begin{vmatrix}
 0 & 4\\
 1 & 0
 \end{vmatrix}
@@ -84,26 +79,23 @@ $
 Hitung masing-masing minor ;
 
 $
+\begin{aligned}
 \begin{vmatrix}
 4 & 5 \\
 0 & 6
 \end{vmatrix}
-= 24
-
-
+&= 24 \\[6pt]
 \begin{vmatrix}
 0 & 5 \\
 1 & 6
 \end{vmatrix}
-= -5
-
-
-
+&= -5 \\[6pt]
 \begin{vmatrix}
 0 & 4 \\
 1 & 0
 \end{vmatrix}
-= -4
+&= -4
+\end{aligned}
 $
 
 substitusi :
@@ -113,10 +105,7 @@ $
 1(24)-2(-5)+3(-4)
 $
 
-$
-=
 24+10-12
-$
 
 $
 \boxed{\det(A)=22}
@@ -152,11 +141,12 @@ $
 M_{11}
 =
 \begin{vmatrix}
-1&2&0\\
-4&1&2\\
-0&3&1
+1 & 2 & 0 \\
+4 & 1 & 2 \\
+0 & 3 & 1
 \end{vmatrix}
-=-13
+=
+-13
 $
 
 minor kedua :
