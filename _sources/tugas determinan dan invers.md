@@ -137,7 +137,7 @@ $
 
 minor pertama :
 
-$
+$$
 M_{11}
 =
 \begin{vmatrix}
@@ -147,11 +147,11 @@ M_{11}
 \end{vmatrix}
 =
 -13
-$
+$$
 
 minor kedua :
 
-$
+$$
 M_{12}
 =
 \begin{vmatrix}
@@ -160,11 +160,11 @@ M_{12}
 1&3&1
 \end{vmatrix}
 =-11
-$
+$$
 
 minor keempat :
 
-$
+$$
 M_{14}
 =
 \begin{vmatrix}
@@ -173,24 +173,24 @@ M_{14}
 1&0&3
 \end{vmatrix}
 =29
-$
+$$
 
 Sehingga
 
-$
+$$
 \det(A)
 =
 1(-13)-2(-11)-29
-$
+$$
 
-$
+$$
 =
 -13+22-29
-$
+$$
 
-$
+$$
 \boxed{\det(A)=-20}
-$
+$$
 
 # 4. Matriks 2x2 (Invers)
 Diberikan matriks
