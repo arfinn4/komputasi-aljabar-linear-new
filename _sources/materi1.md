@@ -9,12 +9,10 @@ Aljabar linear adalah cabang matematika yang mempelajari cara menyelesaikan masa
 # Contoh Kasusnya(Representasi Geometris Geogebra)
 Misalkan kita memiliki dua persamaan linear:
 
-\[
-\begin{aligned}
+$\begin{aligned}
 x + y &= 4 \\
 x - y &= 2
-\end{aligned}
-\]
+\end{aligned}$
 
 Representasi Geometris
 Di GeoGebra, kedua persamaan tersebut akan digambar sebagai dua garis lurus.
@@ -26,21 +24,22 @@ Kedua garis akan berpotongan di satu titik.
 
 Untuk mencari titik potongnya:
 1. Jumlahkan kedua persamaan:
-\[
-\begin{aligned}
+
+$\begin{aligned}
 (x+y) + (x-y) &= 4 + 2 \\
 2x &= 6 \\
 x &= 3
-\end{aligned}
-\]
+\end{aligned}$
+
 
 2. Substitusikan x=3 ke persamaan pertama:
-\[
+
+$
 \begin{aligned}
 3 + y &= 4 \\
 y &= 1
 \end{aligned}
-\]
+$
 
 Jadi titik potongnya adalah :
 $(3,1)$
