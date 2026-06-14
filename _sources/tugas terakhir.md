@@ -56,10 +56,9 @@ $
 
 Artinya:
 $
-\begin{itemize}
 \item Lebar = 100 piksel
 \item Tinggi = 100 piksel
-\end{itemize}$
+$
 
 Jumlah piksel:
 
