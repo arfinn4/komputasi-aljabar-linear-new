@@ -196,9 +196,9 @@ $\begin{aligned}
 
 Rumus invers matriks 2x2:
 
-$A^{-1}
+A^{-1}
 =
-\frac{1}{ad-bc}
+$\frac{1}{ad-bc}
 \begin{bmatrix}
 d & -b \\
 -c & a
@@ -212,9 +212,9 @@ $=\frac{1}{5}
 -3 & 2
 \end{bmatrix}$
 
-$A^{-1}
+A^{-1}
 =
-\begin{bmatrix}
+$\begin{bmatrix}
 \frac{4}{5} & -\frac{1}{5} \\
 -\frac{3}{5} & \frac{2}{5}
 \end{bmatrix}$
@@ -281,18 +281,18 @@ $\begin{aligned}
 
 # Langkah 4 : Invers Matrik
 
-$A^{-1}
+A^{-1}
 =
-\frac{1}{3}
+$\frac{1}{3}
 \begin{bmatrix}
 1 & -5 & 1 \\
 2 & 2 & -1 \\
 -2 & 1 & 1
 \end{bmatrix}$
 
-$A^{-1}
+A^{-1}
 =
-\begin{bmatrix}
+$\begin{bmatrix}
 \frac{1}{3} & -\frac{5}{3} & \frac{1}{3} \\
 \frac{2}{3} & \frac{2}{3} & -\frac{1}{3} \\
 -\frac{2}{3} & \frac{1}{3} & \frac{1}{3}
