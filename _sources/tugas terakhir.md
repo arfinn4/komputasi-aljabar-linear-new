@@ -303,17 +303,17 @@ $
 
 Contoh:
 
-$\begin{center}
-\begin{tabular}{|c|c|}
+$
+\begin{array}{|c|c|}
 \hline
-Orang & Distance \\
+\text{Orang} & \text{Distance} \\
 \hline
-Andi & 128 \\
-Budi & 310 \\
-Citra & 275 \\
+\text{Andi} & 128 \\
+\text{Budi} & 310 \\
+\text{Citra} & 275 \\
 \hline
-\end{tabular}
-\end{center}$
+\end{array}
+$
 
 Karena nilai terkecil dimiliki Andi, maka wajah tersebut dipilih sebagai hasil pengenalan.
 

@@ -62,19 +62,20 @@ $
 Ekspansi dilakukan pada baris pertama:
 
 $
-\det(B)
 =
 1
 \begin{vmatrix}
 3 & 1\\
 2 & 3
-\end{vmatrix}
+\end{vmatrix}$
+$
 -
 (-3)
 \begin{vmatrix}
 0 & 1\\
 1 & 3
-\end{vmatrix}
+\end{vmatrix}$
+$
 +
 (-2)
 \begin{vmatrix}
@@ -149,12 +150,7 @@ Jadi determinan matriks $C$ adalah 44
 # Bagian 2: Menentukan Invers Matriks dengan Metode Adjoin
 Jika suatu matriks persegi memiliki determinan tidak sama dengan nol, maka inversnya dapat dicari menggunakan rumus:
 
-$
-A^{-1}
-=
-\frac{1}{\det(A)}
-\operatorname{adj}(A)
-$
+$A^{-1}=\frac{1}{\det(A)}\operatorname{adj}(A)$
 
 dengan:
 
@@ -180,26 +176,27 @@ $
 
 maka invers matriksnya:
 
-$
-A^{-1}
+$A^{-1}
 =
-\frac{1}{-9}
+-\frac{1}{9}
 \begin{bmatrix}
 3 & 3\\
 -2 & -5
 \end{bmatrix}
-$
+=
+\begin{bmatrix}
+-\frac{1}{3} & -\frac{1}{3}\\
+\frac{2}{9} & \frac{5}{9}
+\end{bmatrix}$
 
 Sehingga:
 
-$
-A^{-1}
+$A^{-1}
 =
 \begin{bmatrix}
--\frac13 & -\frac13\\
-\frac29 & \frac59
-\end{bmatrix}
-$
+-\frac{1}{3} & -\frac{1}{3} \\
+\frac{2}{9} & \frac{5}{9}
+\end{bmatrix}$
 
 # Soal 5: Invers Matriks Orde 3x3
 Gunakan matriks:
@@ -215,37 +212,31 @@ $
 
 Langkah-langkah yang dilakukan:
 
-$\begin{enumerate}
-    \item Hitung determinan matriks.
-    \item Tentukan seluruh kofaktor.
-    \item Susun matriks kofaktor.
-    \item Transposkan matriks kofaktor untuk memperoleh adjoin.
-    \item Kalikan adjoin dengan \frac{1}{\det(B)}
-\end{enumerate}$
+- Hitung determinan matriks.
+- Tentukan seluruh kofaktor.
+- Susun matriks kofaktor.
+- Transposkan matriks kofaktor untuk memperoleh adjoin.
+- Kalikan adjoin dengan $\frac{1}{\det(B)}$
 
 Dengan cara tersebut diperoleh invers matriks:
 
-$
-B^{-1}
+$B^{-1}
 =
 \begin{bmatrix}
-\frac{7}{10} & \frac12 & \frac{3}{10}\\
--\frac{1}{10} & \frac12 & -\frac{1}{10}\\
--\frac12 & -\frac12 & \frac{3}{10}
-\end{bmatrix}
-$
+\frac{7}{10} & \frac{1}{2} & \frac{3}{10} \\
+-\frac{1}{10} & \frac{1}{2} & -\frac{1}{10} \\
+-\frac{1}{2} & -\frac{1}{2} & \frac{3}{10}
+\end{bmatrix}$
 
 # Soal 6: Invers Matriks Orde 4x4
 
 Untuk matriks orde $4x4$, prosedurnya sama:
 
-$\begin{enumerate}
-    \item Cari determinan matriks.
-    \item Hitung semua kofaktor.
-    \item Bentuk matriks kofaktor.
-    \item Transposkan menjadi matriks adjoin.
-    \item Kalikan dengan \frac{1}{\det(A)}
-\end{enumerate}$
+- Cari determinan matriks.
+- Hitung semua kofaktor.
+- Bentuk matriks kofaktor.
+- Transposkan menjadi matriks adjoin.
+- Kalikan dengan $\frac{1}{\det(A)}$
 
 Karena jumlah elemen yang lebih banyak, perhitungan invers matriks $4\times4$ biasanya cukup panjang sehingga lebih praktis menggunakan bantuan perangkat lunak seperti MATLAB, SageMath, NumPy, atau Octave.
 

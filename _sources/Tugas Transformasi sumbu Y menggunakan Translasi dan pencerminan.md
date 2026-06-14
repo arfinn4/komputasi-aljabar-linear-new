@@ -178,19 +178,18 @@ Pada setiap frame ditampilkan:
 
 # Alur Program
 
-$\begin{center}
-\begin{tabular}{c}
-Objek Awal \\
+$
+\begin{array}{c}
+\text{Objek Awal} \\
 \downarrow \\
-Translasi \\
+\text{Translasi} \\
 \downarrow \\
-Refleksi \\
+\text{Refleksi} \\
 \downarrow \\
-Tampilkan \\
+\text{Tampilkan} \\
 \downarrow \\
-Ulangi
-\end{tabular}
-\end{center}
+\text{Ulangi}
+\end{array}
 $
 
 # Kesimpulan
@@ -199,11 +198,9 @@ Program ini menggunakan dua jenis transformasi geometri, yaitu translasi dan ref
 # Ilustrasi Sederhana
 Bayangkan seseorang berdiri di depan cermin:
 
-$\begin{itemize}
-    \item Orang tersebut bergerak ke kanan.
-    \item Bayangannya tampak bergerak ke kiri.
-    \item Keduanya tetap sejajar terhadap cermin.
-\end{itemize}$
+- Orang tersebut bergerak ke kanan.
+- Bayangannya tampak bergerak ke kiri.
+- Keduanya tetap sejajar terhadap cermin.
 
 Konsep inilah yang ditunjukkan oleh animasi transformasi translasi dan refleksi pada program.
 

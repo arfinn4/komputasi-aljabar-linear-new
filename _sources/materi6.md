@@ -45,28 +45,24 @@ $
 # Langkah 2: Mencari q1	​
 Norma kolom pertama:
 
-$
-\|a_1\|
+$\|a_1\|
 =
-\sqrt{4^2+2^2}
+\sqrt{4^2 + 2^2}
 =
 \sqrt{20}
-=
-4.4721
-$
+\approx
+4.4721$
 
 Sehingga
 
-$
-q_1
+$q_1
 =
 \frac{a_1}{\|a_1\|}
 =
 \begin{bmatrix}
-0.8944\\
+0.8944 \\
 0.4472
-\end{bmatrix}
-$
+\end{bmatrix}$
 
 dan
 
