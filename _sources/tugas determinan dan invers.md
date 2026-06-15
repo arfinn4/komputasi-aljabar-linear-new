@@ -74,25 +74,37 @@ $\begin{vmatrix}
 
 Hitung masing-masing minor ;
 
-$
-\det(A)=1$
+$\det(A)=1$
 
-$\begin{vmatrix}
+$
+\begin{vmatrix}
 4 & 5\\
 0 & 6
 \end{vmatrix}
--
-2
+=
+(4)(6)-(5)(0)
+=
+24
+$
+
+$
 \begin{vmatrix}
 0 & 5\\
 1 & 6
 \end{vmatrix}
-+
-3
-\begin{vmatrix}
+=
+(0)(6)-(5)(1)
+=
+-5$
+
+$\begin{vmatrix}
 0 & 4\\
 1 & 0
-\end{vmatrix}$
+\end{vmatrix}
+=
+(0)(0)-(4)(1)
+=
+-4$
 
 substitusi :
 

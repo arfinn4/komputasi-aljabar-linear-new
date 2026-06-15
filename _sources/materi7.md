@@ -12,11 +12,10 @@ $
 
 dengan:
 $
-\begin{itemize}
-    \item A adalah matriks transformasi,
-    \item x adalah vektor awal,
-    \item y adalah hasil transformasi.
-\end{itemize}$
+- A adalah matriks transformasi,
+- x adalah vektor awal,
+- y adalah hasil transformasi.
+$
 
 Transformasi matriks memungkinkan perubahan koordinat dilakukan secara sistematis dan efisien.
 
@@ -159,24 +158,23 @@ Bagian ini menjelaskan langkah-langkah penggunaan aplikasi sederhana yang memanf
 # Deskripsi Sistem
 Program dibuat menggunakan bahasa Python dan menampilkan objek grafis pada layar. Pengguna dapat melakukan beberapa operasi transformasi, seperti:
 
-$\begin{itemize}
-    \item Translasi (pergeseran),
-    \item Rotasi (perputaran),
-    \item Refleksi (pencerminan),
-    \item Skala (perbesaran atau pengecilan).
-\end{itemize}$
+$
+- Translasi (pergeseran),
+- Rotasi (perputaran),
+- Refleksi (pencerminan),
+- Skala (perbesaran atau pengecilan)$
 
 Setiap transformasi dihitung menggunakan operasi matriks sehingga hasilnya sesuai dengan teori aljabar linear.
 
 # Kebutuhan Lingkungan Eksekusi
 Sebelum menjalankan program, pastikan perangkat telah memenuhi kebutuhan berikut:
 
-$\begin{itemize}
-    \item Python versi 3.8 atau lebih baru.
-    \item Pustaka NumPy untuk perhitungan matriks.
-    \item Pustaka Pygame untuk menampilkan grafis.
-    \item Sistem operasi Windows, Linux, atau macOS.
-\end{itemize}$
+$
+- Python versi 3.8 atau lebih baru.
+- Pustaka NumPy untuk perhitungan matriks.
+- Pustaka Pygame untuk menampilkan grafis.
+- Sistem operasi Windows, Linux, atau macOS.
+$
 
 # Instalasi Dependensi
 Untuk memasang pustaka yang diperlukan, jalankan perintah berikut pada terminal:
