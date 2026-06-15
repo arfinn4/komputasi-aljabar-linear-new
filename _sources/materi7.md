@@ -63,22 +63,20 @@ R_y v=
 -1 & 0\\
 0 & 1
 \end{bmatrix}
-\begin{bmatrix}
+\cbegin{bmatrix}
 x\\
 y
 \end{bmatrix}
 $
 
-$
-=
-\begin{bmatrix}
+
+$\begin{bmatrix}
 (-1)(x)+(0)(y)\\
 (0)(x)+(1)(y)
 \end{bmatrix}
 $
 
 $
-=
 \begin{bmatrix}
 -x\\
 y
