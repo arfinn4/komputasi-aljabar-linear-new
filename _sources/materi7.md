@@ -69,18 +69,17 @@ y
 \end{bmatrix}
 $
 
-
-$\begin{bmatrix}
+$
+/[R_yv=
+\begin{bmatrix}
 (-1)(x)+(0)(y)\\
 (0)(x)+(1)(y)
 \end{bmatrix}
-$
-
-$
+=
 \begin{bmatrix}
 -x\\
 y
-\end{bmatrix}
+\end{bmatrix}\]
 $
 
 Hasil tersebut menunjukkan bahwa koordinat $x$ berubah menjadi $-x$, sedangkan koordinat $y$ tetap. Dengan demikian, titik telah tercermin terhadap sumbu Y.
@@ -99,7 +98,7 @@ $
 Lakukan refleksi terhadap sumbu Y.
 Perhitungannya:
 
-$
+$\[
 R_yP=
 \begin{bmatrix}
 -1 & 0\\
@@ -111,10 +110,15 @@ R_yP=
 \end{bmatrix}
 =
 \begin{bmatrix}
+(-1)(3)+(0)(5)\\
+(0)(3)+(1)(5)
+\end{bmatrix}
+=
+\begin{bmatrix}
 -3\\
 5
 \end{bmatrix}
-$
+\]$
 
 Jadi, setelah dicerminkan terhadap sumbu Y, titik $(3,5)$ berubah menjadi $(-3,5)$
 
