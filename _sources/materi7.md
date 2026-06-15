@@ -58,7 +58,7 @@ $
 Maka:
 
 $
-R_yv=
+R_y v=
 \begin{bmatrix}
 -1 & 0\\
 0 & 1
@@ -67,6 +67,17 @@ R_yv=
 x\\
 y
 \end{bmatrix}
+$
+
+$
+=
+\begin{bmatrix}
+(-1)(x)+(0)(y)\\
+(0)(x)+(1)(y)
+\end{bmatrix}
+$
+
+$
 =
 \begin{bmatrix}
 -x\\
