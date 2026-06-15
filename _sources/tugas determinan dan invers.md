@@ -55,46 +55,46 @@ $A=
 
 Ekspansi pada baris pertama:
 
-$\begin{aligned}
-\det(A)
-&= 1
+$\det(A)
+=
+1
 \begin{vmatrix}
 4 & 5 \\
 0 & 6
 \end{vmatrix}
-- 2
+-2
 \begin{vmatrix}
 0 & 5 \\
 1 & 6
 \end{vmatrix}
-+ 3
++3
 \begin{vmatrix}
 0 & 4 \\
 1 & 0
-\end{vmatrix}
-\end{aligned}$
+\end{vmatrix}$
 
 Hitung masing-masing minor ;
 
 $
-\begin{aligned}
-\begin{bmatrix}
-4 & 5 \\
+\det(A)
+=
+1
+\begin{vmatrix}
+4 & 5\\
 0 & 6
-\end{bmatrix}
-&= 24 \\[6pt]
-\begin{bmatrix}
-0 & 5 \\
+\end{vmatrix}
+-
+2
+\begin{vmatrix}
+0 & 5\\
 1 & 6
-\end{bmatrix}
-&= -5 \\[6pt]
-\begin{bmatrix}
-0 & 4 \\
+\end{vmatrix}
++
+3
+\begin{vmatrix}
+0 & 4\\
 1 & 0
-\end{bmatrix}
-&= -4
-\end{aligned}
-$
+\end{vmatrix}$
 
 substitusi :
 

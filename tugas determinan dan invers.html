@@ -308,6 +308,8 @@
 
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="Tugas%20Transformasi%20sumbu%20Y%20menggunakan%20Translasi%20dan%20pencerminan.html">Tugas Transformasi sumbu Y menggunakan Translasi dan pencerminan</a></li>
 
 
@@ -546,17 +548,27 @@
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-22-determinan">1. Matriks 2×2 (Determinan)</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-3x3-determinan">2. Matriks 3x3 (Determinan)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#det-a">$\det(A)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">$
+\det(A)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#begin-vmatrix-4-5-0-6-end-vmatrix">1
+\begin{vmatrix}
+4 &amp; 5\
+0 &amp; 6
+\end{vmatrix}</a></li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-4x4-determinan">3. Matriks 4x4 (Determinan)</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-2x2-invers">4. Matriks 2x2 (Invers)</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-1">A^{-1}</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">A^{-1}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">A^{-1}</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-3x3-invers">5. Matriks 3X3 (Invers)</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-1-menentukan-determinan">Langkah 1 : Menentukan Determinan</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-2-matriks-kofaktor">Langkah 2 : Matriks Kofaktor</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-3-adjoin">Langkah 3 : Adjoin</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-4-invers-matrik">Langkah 4 : Invers Matrik</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">A^{-1}</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">A^{-1}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">A^{-1}</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-4x4-invers">6. Matriks 4x4 (Invers)</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#obe-1">OBE 1</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#obe-2">OBE 2</a></li>
@@ -622,48 +634,46 @@ M_{ij}=\det(A_{ij})
 1 &amp; 0 &amp; 6
 \end{bmatrix}\)</span></p>
 <p>Ekspansi pada baris pertama:</p>
-<p>$\begin{aligned}
-\det(A)
-&amp;= 1
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="det-a">
+<h1>$\det(A)<a class="headerlink" href="#det-a" title="Link to this heading">#</a></h1>
+<p>1
 \begin{vmatrix}
 4 &amp; 5 \
 0 &amp; 6
-\end{vmatrix}</p>
-<ul class="simple">
-<li><p>2
+\end{vmatrix}
+-2
 \begin{vmatrix}
 0 &amp; 5 \
 1 &amp; 6
-\end{vmatrix}</p></li>
-</ul>
-<ul class="simple">
-<li><p>3
+\end{vmatrix}
++3
 \begin{vmatrix}
 0 &amp; 4 \
 1 &amp; 0
-\end{vmatrix}
-\end{aligned}$</p></li>
-</ul>
+\end{vmatrix}$</p>
 <p>Hitung masing-masing minor ;</p>
-<p><span class="math notranslate nohighlight">\(
-\begin{aligned}
-\begin{bmatrix}
-4 &amp; 5 \\
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>$
+\det(A)<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<section id="begin-vmatrix-4-5-0-6-end-vmatrix">
+<h2>1
+\begin{vmatrix}
+4 &amp; 5\
 0 &amp; 6
-\end{bmatrix}
-&amp;= 24 \\[6pt]
-\begin{bmatrix}
-0 &amp; 5 \\
+\end{vmatrix}<a class="headerlink" href="#begin-vmatrix-4-5-0-6-end-vmatrix" title="Link to this heading">#</a></h2>
+<p>2
+\begin{vmatrix}
+0 &amp; 5\
 1 &amp; 6
-\end{bmatrix}
-&amp;= -5 \\[6pt]
-\begin{bmatrix}
-0 &amp; 4 \\
+\end{vmatrix}
++
+3
+\begin{vmatrix}
+0 &amp; 4\
 1 &amp; 0
-\end{bmatrix}
-&amp;= -4
-\end{aligned}
-\)</span></p>
+\end{vmatrix}$</p>
 <p>substitusi :</p>
 <p><span class="math notranslate nohighlight">\(
 \det(A)=
@@ -673,6 +683,7 @@ M_{ij}=\det(A_{ij})
 <p><span class="math notranslate nohighlight">\(
 \boxed{\det(A)=22}
 \)</span></p>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="matriks-4x4-determinan">
 <h1>3. Matriks 4x4 (Determinan)<a class="headerlink" href="#matriks-4x4-determinan" title="Link to this heading">#</a></h1>
@@ -761,8 +772,8 @@ d &amp; -b \\
 -3 &amp; 2
 \end{bmatrix}\)</span></p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>A^{-1}<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="id2">
+<h1>A^{-1}<a class="headerlink" href="#id2" title="Link to this heading">#</a></h1>
 <p><span class="math notranslate nohighlight">\(\begin{bmatrix}
 \frac{4}{5} &amp; -\frac{1}{5} \\
 -\frac{3}{5} &amp; \frac{2}{5}
@@ -830,8 +841,8 @@ C=
 <section class="tex2jax_ignore mathjax_ignore" id="langkah-4-invers-matrik">
 <h1>Langkah 4 : Invers Matrik<a class="headerlink" href="#langkah-4-invers-matrik" title="Link to this heading">#</a></h1>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="id2">
-<h1>A^{-1}<a class="headerlink" href="#id2" title="Link to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="id3">
+<h1>A^{-1}<a class="headerlink" href="#id3" title="Link to this heading">#</a></h1>
 <p><span class="math notranslate nohighlight">\(\frac{1}{3}
 \begin{bmatrix}
 1 &amp; -5 &amp; 1 \\
@@ -839,8 +850,8 @@ C=
 -2 &amp; 1 &amp; 1
 \end{bmatrix}\)</span></p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="id3">
-<h1>A^{-1}<a class="headerlink" href="#id3" title="Link to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="id4">
+<h1>A^{-1}<a class="headerlink" href="#id4" title="Link to this heading">#</a></h1>
 <p><span class="math notranslate nohighlight">\(\begin{bmatrix}
 \frac{1}{3} &amp; -\frac{5}{3} &amp; \frac{1}{3} \\
 \frac{2}{3} &amp; \frac{2}{3} &amp; -\frac{1}{3} \\
@@ -1014,17 +1025,27 @@ A^{-1}
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-22-determinan">1. Matriks 2×2 (Determinan)</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-3x3-determinan">2. Matriks 3x3 (Determinan)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#det-a">$\det(A)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">$
+\det(A)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#begin-vmatrix-4-5-0-6-end-vmatrix">1
+\begin{vmatrix}
+4 &amp; 5\
+0 &amp; 6
+\end{vmatrix}</a></li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-4x4-determinan">3. Matriks 4x4 (Determinan)</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-2x2-invers">4. Matriks 2x2 (Invers)</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#a-1">A^{-1}</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">A^{-1}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">A^{-1}</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-3x3-invers">5. Matriks 3X3 (Invers)</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-1-menentukan-determinan">Langkah 1 : Menentukan Determinan</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-2-matriks-kofaktor">Langkah 2 : Matriks Kofaktor</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-3-adjoin">Langkah 3 : Adjoin</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-4-invers-matrik">Langkah 4 : Invers Matrik</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">A^{-1}</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">A^{-1}</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">A^{-1}</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-4x4-invers">6. Matriks 4x4 (Invers)</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#obe-1">OBE 1</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#obe-2">OBE 2</a></li>
