@@ -55,23 +55,7 @@ $A=
 
 Ekspansi pada baris pertama:
 
-$\det(A)
-=
-1
-\begin{vmatrix}
-4 & 5 \\
-0 & 6
-\end{vmatrix}
--2
-\begin{vmatrix}
-0 & 5 \\
-1 & 6
-\end{vmatrix}
-+3
-\begin{vmatrix}
-0 & 4 \\
-1 & 0
-\end{vmatrix}$
+$$\det(A)=1\begin{vmatrix}4&5\0&6\end{vmatrix}-2\begin{vmatrix}0&5\1&6\end{vmatrix}+3\begin{vmatrix}0&4\1&0\end{vmatrix}$$
 
 Hitung masing-masing minor ;
 
